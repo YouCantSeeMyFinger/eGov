@@ -1,46 +1,48 @@
-$(document).ready(function() {
-	loadList();
+$(() => {
+    loadList();
 });
 
 function loadList() {
-	$.ajax({
-		url: "boardList.do",
-		dataType: "json",
-		type: "get",
-		success: makeView,
-		error: function() {
-			alert("error");
-		}
-	});
+    $.ajax({
+        url: "boardList.do",
+        dataType: "json",
+        type: "get",
+        // CallBackFunction
+        success: makeView,
+        error: function () {
+            alert("error");
+        }
+    });
 }
 
 function makeView(data) {
-	// table 시작
-	let listHtml = "<table class = 'table table-bordered'>"
 
-	// thead 추가
-	listHtml += "<tr>"
-	listHtml += "<td>번호</td>"
-	listHtml += "<td>제목</td>"
-	listHtml += "<td>작성자</td>"
-	listHtml += "<td>작성일</td>"
-	listHtml += "<td>조회수</td>"
-	listHtml += "</tr>"
+    let boardHtml = [];
+    const $view = $("#view");
+    boardHtml.push("<table class='table table-bordered'>");
+    boardHtml.push("<thead>");
+    boardHtml.push("<tr>");
+    boardHtml.push("<td>번호</td>");
+    boardHtml.push("<td>제목</td>");
+    boardHtml.push("<td>작성자</td>");
+    boardHtml.push("<td>작성일</td>");
+    boardHtml.push("<td>조회수</td>");
+    boardHtml.push("</tr>");
+    boardHtml.push("</thead>");
 
-	// tbody 함수
-	// 반복문
-	$.each(data, function(index, object) {
-		listHtml += "<tr>"
-		listHtml += "<td>" + object.idx + "</td>"
-		listHtml += "<td>" + object.title + "</td>"
-		listHtml += "<td>" + object.writer + "</td>"
-		listHtml += "<td>" + object.indate + "</td>"
-		listHtml += "<td>" + object.count + "</td>"
-		listHtml += "</tr>"
-	});
+    boardHtml.push("<tbody>");
+    $.each(data, function (index, object) {
+        boardHtml.push("<tr>");
+        boardHtml.push("<td>" + object.idx + "</td>");
+        boardHtml.push("<td>" + object.title + "</td>");
+        boardHtml.push("<td>" + object.writer + "</td>");
+        boardHtml.push("<td>" + object.indate + "</td>");
+        boardHtml.push("<td>" + object.count + "</td>");
+        boardHtml.push("</tr>");
+    });
+    boardHtml.push("</tbody>");
 
-	// table 끝
-	listHtml += "</table>"
+    boardHtml.push("</table>")
 
-	$("#view").html(listHtml);
+    $view.html(boardHtml.join(" "));
 }
