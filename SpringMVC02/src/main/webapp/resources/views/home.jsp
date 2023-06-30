@@ -17,6 +17,8 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
+<script src="${pageContext.request.contextPath}/resources/js/home.js"></script>
+
 <body>
 
 	<div class="container">
