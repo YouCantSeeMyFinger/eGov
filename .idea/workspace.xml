@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="085a019b-bb8d-4801-8440-dcc6b8b3af6b" name="변경" comment="docs: IDE변경&#10;&#10;JS파일을 비롯한 Editor가 정상적으로 작동 불가&#10;issues : #9">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringMVC01/target/m2e-wtp/web-resources/META-INF/maven/kr.board/controller/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/SpringMVC01/target/m2e-wtp/web-resources/META-INF/maven/kr.board/controller/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpringMVC02/src/main/java/kr/board/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/SpringMVC02/src/main/java/kr/board/controller/BoardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SpringMVC02/src/main/webapp/resources/js/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/SpringMVC02/src/main/webapp/resources/js/home.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SpringMVC02/src/main/webapp/resources/views/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/SpringMVC02/src/main/webapp/resources/views/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpringMVC02/target/m2e-wtp/web-resources/META-INF/maven/kr.board/controller/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/SpringMVC02/target/m2e-wtp/web-resources/META-INF/maven/kr.board/controller/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpringMVC02/target/classes/kr/board/controller/BoardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/SpringMVC02/target/classes/kr/board/controller/BoardController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +73,9 @@
       <updated>1688109697121</updated>
       <workItem from="1688109698496" duration="613000" />
       <workItem from="1688110323103" duration="294000" />
-      <workItem from="1688117117077" duration="585000" />
+      <workItem from="1688117117077" duration="4339000" />
+      <workItem from="1688177431846" duration="864000" />
+      <workItem from="1688185792059" duration="200000" />
     </task>
     <task id="LOCAL-00001" summary="docs: IDE변경&#10;&#10;JS파일을 비롯한 Editor가 정상적으로 작동 불가&#10;issues : #9">
       <created>1688110059449</created>
