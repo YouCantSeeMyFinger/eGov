@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.board.entity.Board;
@@ -33,16 +34,40 @@ public class BoardController {
 		return list;
 	}
 
-	/**
-	 * Js에서 받은 데이터를 Board의 필드에 맞게 바인딩 해주는 작업을 Spring이 알아서 해준다.
-	 * @param vo
-	 */
-
 	@PostMapping("/boardInsert.do")
 	@ResponseBody
 	public void boardInsert(Board vo) {
 		log.info("board : {}", vo);
 		this.boardMapper.boardInsert(vo);
+	}
+
+	@PostMapping("/goDelete.do")
+	@ResponseBody
+	public void goDelete(@RequestParam("idx") int idx) {
+		this.boardMapper.boardDelete(idx);
+	}
+
+	@PostMapping("/boardUpdate.do")
+	@ResponseBody
+	public void boardUpdate(Board vo) {
+		log.info("board : {}", vo);
+		this.boardMapper.boardUpdate(vo);
+	}
+
+	@PostMapping("/boardViewCount")
+	@ResponseBody
+	public Board boardViewCount(@RequestParam("idx") int idx) {
+		this.boardMapper.boardCount(idx);
+		Board vo = this.boardMapper.boardContents(idx);
+		return vo;
+	}
+
+	@GetMapping("/boardContent.do")
+	@ResponseBody
+	public Board boardContent(@RequestParam("idx") int idx) {
+		Board board = this.boardMapper.boardContents(idx);
+		log.info("board : {}", board);
+		return board;
 	}
 
 }
