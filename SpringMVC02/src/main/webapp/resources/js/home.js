@@ -4,7 +4,7 @@ $(() => {
 
 function loadList() {
 	$.ajax({
-		url: "boardList.do",
+		url: "board/list",
 		dataType: "json",
 		type: "get",
 		success: function(data) {
@@ -37,7 +37,7 @@ function makeView(data) {
 		boardHtml.push("<td>" + object.idx + "</td>");
 		boardHtml.push(`<td id="title${object.idx}" ><a href="javascript:showBoardContext(${object.idx})">${object.title}</a></td>`);
 		boardHtml.push("<td>" + object.writer + "</td>");
-		boardHtml.push("<td>" + object.indate + "</td>");
+		boardHtml.push("<td>" + object.indate.split(" ")[0] + "</td>");
 		boardHtml.push(`<td id="cnt${object.idx}">${object.count}</td>`);
 		boardHtml.push("</tr>");
 
@@ -80,7 +80,7 @@ function boardInsert() {
 	let formData = $("#tableForm").serialize();
 
 	$.ajax({
-		url: "boardInsert.do",
+		url: "board/new",
 		type: "post",
 		data: formData,
 		success: loadList,
@@ -105,15 +105,13 @@ function showBoardContext(idx) {
 		displayValue = "table-row";
 
 		$.ajax({
-			url: "boardContent.do",
+			url: `board/${idx}`,
 			type: "get",
-			data: { "idx": `${idx}` },
 			dataType: "json",
 			success: function(data) {
 				$(`#boardContent${idx}`).val(data.content);
 			},
 			error: error,
-
 		});
 
 		$targetId.css("display", displayValue);
@@ -123,9 +121,8 @@ function showBoardContext(idx) {
 		$targetId.css("display", displayValue);
 
 		$.ajax({
-			url: "boardViewCount",
-			type: "post",
-			data: { "idx": `${idx}` },
+			url: `board/count/${idx}`,
+			type: "put",
 			dataType: "json",
 			success: function(data) {
 				$(`#cnt${idx}`).text(data.count);
@@ -139,9 +136,8 @@ function showBoardContext(idx) {
 
 function goDelete(idx) {
 	$.ajax({
-		url: "goDelete.do",
-		type: "post",
-		data: { "idx": idx },
+		url: `board/${idx}`,
+		type: "delete",
 		success: loadList,
 		error: error,
 	});
@@ -166,19 +162,29 @@ function cancleUpdate() {
 function goUpdate(idx) {
 	let updateTitleValue = $(`#newInputTitle${idx}`).val();
 	let updateContentValue = $(`#boardContent${idx}`).val();
-
 	$.ajax({
-		url: "boardUpdate.do",
-		type: "post",
-		data: {
-			"title": `${updateTitleValue}`,
-			"content": `${updateContentValue}`,
-			"idx": `${idx}`
-		},
+		// ** 주의 **
+		// JSON.stringify를 통해 json형식으로 변형
+		// 이 때 serialize와 다르다는 것을 알아야한다.
+		// data 객체를 사용 할 때에는 데이터를 직렬화화는 과정이 필요하다.
+		// 때문에 serialize를 통해 직렬화하는 작업
+		// 혹은 json으로 변환하는 데이터 직렬화 작업 둘 중 하나를 거쳐야하는대.
+		// 이 경우 serialize를 통해 직렬화를 하지 않았기 때문에 json직렬화를 채택
+
+		url: "board/update",
+		type: "put",
+		data: JSON.stringify({
+			title: updateTitleValue,
+			content: updateContentValue,
+			idx: idx
+		}),
 		success: function() {
 			loadList();
 			alert("수정되었습니다.");
 		},
+		contentType: "application/json",
+		// 이 객체를 통해 서버측에 json데이터라는 것을 알려준다.
+		// Board객체의 @RequestBody로 인해 필드에 바인딩 작업을 할 수 있게 된것이다.
 		error: error
 	});
 }
