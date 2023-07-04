@@ -42,13 +42,27 @@ public class BoardRestController {
 	public void goDelete(@PathVariable("idx") int idx) {
 		this.boardMapper.boardDelete(idx);
 	}
-
+	
+	/**
+	 * ResponseBody 와 RequestBody의 차이점 <br><br>
+	 * ResponseBody<br>
+	 * 컨트롤러의 메소드의 반환 값이 있을 시 해당 값을 Json형식으로<br>
+	 * http 요청의 body 부분에 담아 클라이언트에게 전송한다.<br>
+	 * 
+	 * 하지만 RequestBody의 경우 클라이언트 쪽에서 받은 데이터를 AJAX통신을 이용하여 서버측으로 전달하는 과정에서
+	 * 해당 URI를 처리하는 컨트롤러의 메소드의 파라미터가 객체인 경우 해당 객체의 필드를 확인 후 파라미터 객체의 필드명과 일치하는
+	 * 값이 있다면 해당 값을 저장한다.
+	 * 
+	 * 그리고 가장 큰 차이점은 RequestBody의 target은 파라미터이고 , ResponseBody의 target은 메소드이다.
+	 * 
+	 * @param vo
+	 */
+	
 	@PutMapping("/update")
 	public void boardUpdate(@RequestBody Board vo) {
 		log.info("board : {}", vo);
 		this.boardMapper.boardUpdate(vo);
 	}
-
 	@PutMapping("/count/{idx}")
 	public Board boardViewCount(@PathVariable("idx") int idx) {
 		this.boardMapper.boardCount(idx);
