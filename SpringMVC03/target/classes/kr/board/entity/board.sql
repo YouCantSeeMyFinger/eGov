@@ -1,1 +1,1 @@
-select * from myboard
+select * from member
