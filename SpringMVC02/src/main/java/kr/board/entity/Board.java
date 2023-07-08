@@ -3,6 +3,7 @@ package kr.board.entity;
 import lombok.Data;
 
 // Domain
+// Comment
 @Data
 public class Board {
     // 번호

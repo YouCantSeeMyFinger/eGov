@@ -9,8 +9,11 @@ import lombok.RequiredArgsConstructor;
 @Controller
 public class BoardController {
 
-	@RequestMapping("/board")
+	@RequestMapping("/boardMain.do")
 	public String main() {
 		return "board/home";
 	}
 }
+
+
+
