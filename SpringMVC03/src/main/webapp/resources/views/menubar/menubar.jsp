@@ -44,12 +44,28 @@
 				</div>
 			</form>
 
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#"><span class="glyphicon glyphicon-user"></span>
-						Sign Up</a></li>
-				<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>
-						Login</a></li>
-			</ul>
+			<!-- 로그인 하지 않았을 시 -->
+			<c:if test="${empty mvo}">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#"><span class="glyphicon glyphicon-user"></span>
+							회원가입</a></li>
+					<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>
+							로그인</a></li>
+				</ul>
+			</c:if>
+
+			<!-- 로그인 했을 때 -->
+			<c:if test="${!empty mvo}">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#"><span class="glyphicon glyphicon-user"></span>
+							회원 정보</a></li>
+					<li><a href="#"><span class="glyphicon glyphicon-refresh"></span>
+							알림</a></li>
+					<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>
+							로그아웃</a></li>
+				</ul>
+			</c:if>
+
 		</div>
 	</div>
 </nav>
