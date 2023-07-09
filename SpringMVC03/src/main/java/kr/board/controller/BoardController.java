@@ -11,9 +11,6 @@ public class BoardController {
 
 	@RequestMapping("/boardMain.do")
 	public String main() {
-		return "board/home";
+		return "board/board";
 	}
 }
-
-
-

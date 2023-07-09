@@ -21,8 +21,9 @@
 <script src="${pageContext.request.contextPath}/resources/js/home.js"></script>
 
 <body>
+	<jsp:include page="../menubar/menubar.jsp"></jsp:include>
 	<div class="container">
-		<h2>Spring Legacy Test</h2>
+		<h2>자유 게시판</h2>
 		<div class="panel panel-default">
 			<div class="panel-heading">panel-heading</div>
 			<div class="panel-body" id="view">panel-content</div>
