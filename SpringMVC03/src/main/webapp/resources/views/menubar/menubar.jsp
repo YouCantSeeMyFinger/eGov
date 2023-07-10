@@ -53,7 +53,7 @@
 							로그인</a></li>
 				</ul>
 			</c:if>
-
+			<!-- 회원 구현하기 -->
 			<!-- 로그인 했을 때 -->
 			<c:if test="${!empty mvo}">
 				<ul class="nav navbar-nav navbar-right">
