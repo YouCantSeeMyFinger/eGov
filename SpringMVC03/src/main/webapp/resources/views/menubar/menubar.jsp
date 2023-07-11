@@ -47,13 +47,13 @@
 			<!-- 로그인 하지 않았을 시 -->
 			<c:if test="${empty mvo}">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#"><span class="glyphicon glyphicon-user"></span>
-							회원가입</a></li>
+					<li><a href="${contextPath}/memJoin.do"><span
+							class="glyphicon glyphicon-user"></span> 회원가입</a></li>
 					<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>
 							로그인</a></li>
 				</ul>
 			</c:if>
-			<!-- 회원 구현하기 -->
+
 			<!-- 로그인 했을 때 -->
 			<c:if test="${!empty mvo}">
 				<ul class="nav navbar-nav navbar-right">
