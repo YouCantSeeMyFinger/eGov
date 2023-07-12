@@ -21,7 +21,7 @@
 <script src="${pageContext.request.contextPath}/resources/js/home.js"></script>
 
 <body>
-	<jsp:include page="../menubar/menubar.jsp"></jsp:include>
+	<jsp:include page="../common/menubar.jsp"></jsp:include>
 	<div class="container">
 		<h2>자유 게시판</h2>
 		<div class="panel panel-default">

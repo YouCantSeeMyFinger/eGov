@@ -20,12 +20,16 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
 <script src="${contextPath}/resources/js/join.js"></script>
 </head>
 
 <body>
-	<jsp:include page="../menubar/menubar.jsp"></jsp:include>
+
 	<div class="container">
+		<jsp:include page="../common/menubar.jsp"></jsp:include>
 		<h2>레이 아웃</h2>
 
 		<div class="panel panel-default">
@@ -36,16 +40,24 @@
 					<table class="table table-bordered"
 						style="text-align: center; border: 1px solid; border-radius: 10px;">
 						<tbody>
+
 							<tr>
 								<td style="width: 100px; vertical-align: middle;">아이디</td>
-
 								<td><input type="text" class="form-control"
 									placeholder="아이디를 입력해주세요." id="inputId"
-									oninput="checkinputLength()" /></td>
+									oninput="checkinputId()" /></td>
 
 								<td style="width: 110px"><button type="submit"
 										class="btn btn-sm btn-primary" style="vertical-align: middle;" />중복확인</td>
 							</tr>
+
+							<tr>
+								<td style="vertical-align: middle;">비밀번호</td>
+								<td><input type="text" placeholder="비밀번호를 입력해주세요."
+									class="form-control" oninput="checkinputPwd()" id="inputPwd" /></td>
+								<td>비밀번호</td>
+							</tr>
+
 						</tbody>
 					</table>
 				</form>

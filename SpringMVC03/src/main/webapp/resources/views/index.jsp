@@ -24,9 +24,10 @@
 </head>
 <body>
 	<!-- Thymeleaf의 Fragment와 동일한 기능 -->
-	<jsp:include page="menubar/menubar.jsp"></jsp:include>
+
 
 	<div class="container">
+		<jsp:include page="common/menubar.jsp"></jsp:include>
 		<h3>Right Aligned Navbar</h3>
 		<p>The .navbar-right class is used to right-align navigation bar
 			buttons.</p>

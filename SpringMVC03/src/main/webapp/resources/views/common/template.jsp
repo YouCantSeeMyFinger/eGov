@@ -22,9 +22,10 @@
 
 <body>
 
-	<jsp:include page="../menubar/menubar.jsp"></jsp:include>
+
 
 	<div class="container">
+		<jsp:include page="../menubar/menubar.jsp"></jsp:include>
 		<h2>레이 아웃</h2>
 
 		<div class="panel panel-default">
