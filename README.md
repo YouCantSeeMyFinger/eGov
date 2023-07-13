@@ -8,6 +8,7 @@
 IDE : eclipse <br>
 DB : MySql 5.1 <br>
 language : Java <br>
+Sql Mapper : Mybatis
 <hr>
 
 
