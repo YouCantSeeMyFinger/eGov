@@ -52,7 +52,7 @@
 									placeholder="아이디를 입력해주세요." id="inputId"
 									onkeyup="checkinputId()" autocomplete="username" name="inputId" /></td>
 
-								<td style="width: 110px"><button type="submit"
+								<td style="width: 110px"><button type="button"
 										class="btn btn-sm btn-primary" style="vertical-align: middle;"
 										onclick="registerCheck()" />중복확인</td>
 							</tr>
