@@ -41,7 +41,7 @@
 			</div>
 			<div class="panel-body">
 
-				<form action="#" method="post">
+				<form action="${contextPath}/memberRegister.do" method="post">
 					<table class="table table-bordered"
 						style="text-align: center; border: 1px solid;">
 						<tbody>
@@ -50,17 +50,18 @@
 								<td style="width: 100px; vertical-align: middle;">아이디</td>
 								<td><input type="text" class="form-control"
 									placeholder="아이디를 입력해주세요." id="inputId"
-									oninput="checkinputId()" autocomplete="username" /></td>
+									onkeyup="checkinputId()" autocomplete="username" name="inputId" /></td>
 
 								<td style="width: 110px"><button type="submit"
-										class="btn btn-sm btn-primary" style="vertical-align: middle;" />중복확인</td>
+										class="btn btn-sm btn-primary" style="vertical-align: middle;"
+										onclick="registerCheck()" />중복확인</td>
 							</tr>
 
 							<tr>
 								<td style="vertical-align: middle;">비밀번호</td>
 								<td><input type="password" placeholder="비밀번호를 입력해주세요."
-									class="form-control" oninput="checkinputPwd()" id="inputPwd"
-									autocomplete="current-password" /></td>
+									class="form-control" onkeyup="checkinputPwd()" id="inputPwd"
+									autocomplete="current-password" name="inputPwd" /></td>
 								<td style="vertical-align: middle;"></td>
 							</tr>
 
@@ -68,21 +69,22 @@
 								<td style="vertical-align: middle;">비밀번호 확인</td>
 								<td><input type="password"
 									placeholder="다시 한번 비밀번호를 입력해주세요." class="form-control"
-									id="inputPwd2" autocomplete="current-password" /></td>
+									id="inputPwd2" name="inputPwd2" autocomplete="current-password"
+									onkeyup="checkinputPwd()" /></td>
 								<td style="vertical-align: middle;"></td>
 							</tr>
 
 							<tr>
 								<td style="vertical-align: middle;">사용자 이름</td>
 								<td><input type="text" placeholder="사용자 이름을 입력해주세요."
-									class="form-control" /></td>
+									class="form-control" id="inputUserName" name="inputUserName" /></td>
 								<td style="vertical-align: middle;"></td>
 							</tr>
 
 							<tr>
 								<td style="vertical-align: middle;">나이</td>
 								<td><input type="text" placeholder="나이를 입력해주세요."
-									class="form-control" /></td>
+									class="form-control" id="inputAge" name="inputAge" /></td>
 								<td style="vertical-align: middle;"></td>
 							</tr>
 
@@ -94,9 +96,12 @@
 
 										<div class="btn-group" data-toggle="buttons">
 											<label class="btn btn-primary active"> <input
-												type="radio" autocomplete="off" value="남자" checked>남자</input>
-											</label> <label class="btn btn-primary active"><input
-												type="radio" autocomplete="off" value="여자">여자</input> </label>
+												type="radio" autocomplete="off" value="남자"
+												id="checkGenderMale" name="checkGenderMale" checked>남자</input>
+											</label> <label class="btn btn-primary active"> <input
+												type="radio" autocomplete="off" value="여자"
+												id="checkGenderFemale" name="checkGenderFemale">여자 </input>
+											</label>
 										</div>
 
 									</div>
@@ -106,9 +111,20 @@
 							<tr>
 								<td style="vertical-align: middle;">이메일</td>
 								<td><input type="text" placeholder="이메일을 입력해주세요."
-									class="form-control" /></td>
+									class="form-control" id="inputEmail"
+									name="inputEmail /></td>
 								<td style="vertical-align: middle;"></td>
 							</tr>
+
+							<tr>
+								<td colspan="3">
+									<button type="submit" class="btn btn-sm btn-primary">등록</button>
+									<button type="reset" class="btn btn-sm btn-warning"
+										onclick="location.href='${contextPath}'">취소</button>
+								</td>
+
+							</tr>
+
 						</tbody>
 
 

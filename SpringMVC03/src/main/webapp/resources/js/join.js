@@ -23,8 +23,8 @@ function checkinputPwd() {
 
 	if (valueCount > 15) {
 		inputValue = inputValue.substring(0, 15);
-		alert("비밀번호는 15자 이하 가능합니다.");
-		$("#inputValue").val(inputValue);
+		$("#inputPwd").val(inputValue);
+		alert("비밀번호는 15자 이하만 가능합니다.");
 	}
 };
 
