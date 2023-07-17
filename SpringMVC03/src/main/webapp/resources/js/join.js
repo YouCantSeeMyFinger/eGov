@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	console.log("Join.jsp 실행");
+
 });
 
 
@@ -38,10 +38,14 @@ function registerCheck() {
 		type: "get",
 		data: { "memberId": memberId },
 
-
-
 		success: function(result) {
+			if (result === 1) {
+				$("#checkMessage").text("회원가입이 완료되었습니다.");
+			} else if (result === 0) {
+				$("#checkMessage").text("이미 존재하는 회원입니다.");
+			}
 
+			$("#myModal").modal("show");
 		},
 
 		error: function() {

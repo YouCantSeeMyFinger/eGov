@@ -27,8 +27,10 @@ public class MemberController {
 	public int memberRegisterCheck(@RequestParam("memberId") String memberId) {
 		Member member = this.memberMapper.registerCheck(memberId);
 		if (memberId.equals("") || member != null) {
+			// 중복된 아이디가 있으면 0을 반환
 			return 0;
 		}
+		// 가입가능한 아이디면 1을 반환
 		return 1;
 	}
 }
