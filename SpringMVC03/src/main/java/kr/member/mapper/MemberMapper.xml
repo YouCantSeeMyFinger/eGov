@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 회원 관련 JAVA Logic과 DB를 연결시키기 위해 만든 Mapper입니다. -->
+<mapper namespace="kr.member.mapper.MemberMapper">
+
+	<select id="registerCheck" resultType="kr.board.user.Member">
+		SELECT * FROM MEMBER WHERE
+		memberID = #{memberId}
+	</select>
+
+
+</mapper>
+
+
+

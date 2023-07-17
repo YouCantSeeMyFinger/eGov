@@ -7,6 +7,10 @@
 
 	<!-- Root Context: defines shared resources visible to all other web components -->
 
+
+
+	<!-- 웹 어플리케이션 bean객체 ComponentScan대상 Java코드로 지정 -->
+	
 	<!-- HikariCP API -->
 	<!-- 객체 생성 태그 -->
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
@@ -24,6 +28,7 @@
 	</bean>
 
 	<mybatis-spring:scan base-package="kr.board.mapper" />
+	<mybatis-spring:scan base-package="kr.member.mapper" />
 
 	<bean class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
