@@ -61,7 +61,8 @@
 								<td><input type="password" placeholder="비밀번호를 입력해주세요."
 									class="form-control" onkeyup="checkinputPwd()" id="inputPwd"
 									autocomplete="current-password" name="inputPwd" /></td>
-								<td style="vertical-align: middle;"></td>
+								<td style="vertical-align: middle; font-size: 3px">보안성</td>
+
 							</tr>
 
 							<tr>
@@ -134,11 +135,10 @@
 		
 			<div id="myModal" class="modal fade" role="dialog">
 				<div class="modal-dialog">
-					<!-- Modal content-->
-					<div class="modal-content">
-						<div class="modal-header">
+					<div class="modal-content panel-info" id="checkType">
+						<div class="modal-header panel-heading">
 							<button type="button" class="close" data-dismiss="modal">&times;</button>
-							<h4 class="modal-title">메시지 확인</h4>
+							<h4 class="modal-title">INFO</h4>
 						</div>
 						<div class="modal-body">
 							<p id="checkMessage"></p>

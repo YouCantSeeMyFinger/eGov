@@ -41,8 +41,10 @@ function registerCheck() {
 		success: function(result) {
 			if (result === 1) {
 				$("#checkMessage").text("회원가입이 완료되었습니다.");
+				$("#checkType").attr("class", "modal-content panel-success");
 			} else if (result === 0) {
 				$("#checkMessage").text("이미 존재하는 회원입니다.");
+				$("#checkType").attr("class", "modal-content panel-warning");
 			}
 
 			$("#myModal").modal("show");
