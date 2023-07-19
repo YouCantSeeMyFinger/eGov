@@ -21,6 +21,7 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
+
 <script src="${contextPath}/resources/js/join.js"></script>
 
 </head>
@@ -61,8 +62,38 @@
 								<td><input type="password" placeholder="비밀번호를 입력해주세요."
 									class="form-control" onkeyup="checkinputPwd()" id="inputPwd"
 									autocomplete="current-password" name="inputPwd" /></td>
-								<td style="vertical-align: middle; font-size: 3px">보안성</td>
 
+								<td style="vertical-align: middle; font-size: 3px"><span>보안
+										상태</span>
+									<div class="progress-container">
+										<div class="progress"
+											style="width: 15px; margin-bottom: 0; display: inline-block;">
+											<div class="progress-bar" role="progressbar"
+												aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+												style="width: 0%"></div>
+										</div>
+
+										<div class="progress"
+											style="width: 15px; margin-bottom: 0; display: inline-block;">
+											<div class="progress-bar" role="progressbar"
+												aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+												style="width: 0%"></div>
+										</div>
+
+										<div class="progress"
+											style="width: 15px; margin-bottom: 0; display: inline-block;">
+											<div class="progress-bar" role="progressbar"
+												aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+												style="width: 0%"></div>
+										</div>
+
+										<div class="progress"
+											style="width: 15px; margin-bottom: 0; display: inline-block;">
+											<div class="progress-bar" role="progressbar"
+												aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+												style="width: 0%"></div>
+										</div>
+									</div></td>
 							</tr>
 
 							<tr>
@@ -71,7 +102,7 @@
 									placeholder="다시 한번 비밀번호를 입력해주세요." class="form-control"
 									id="inputPwd2" name="inputPwd2" autocomplete="current-password"
 									onkeyup="checkinputPwd()" /></td>
-								<td style="vertical-align: middle;"></td>
+								<td style="vertical-align: middle;" id="checkInputbox"></td>
 							</tr>
 
 							<tr>

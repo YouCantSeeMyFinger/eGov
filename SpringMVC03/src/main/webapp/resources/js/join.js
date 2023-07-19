@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+	console.log("ready");
 });
 
 
@@ -20,7 +20,7 @@ function checkinputPwd() {
 	let inputValue = $("#inputPwd").val();
 	let valueCount = inputValue.length;
 
-	console.log("valueCount : ", valueCount);
+	securityBar(inputValue);
 
 	if (valueCount > 15) {
 		inputValue = inputValue.substring(0, 15);
@@ -29,12 +29,49 @@ function checkinputPwd() {
 	}
 };
 
+
+function securityBar(pwd) {
+
+	const hasLowercase = /[a-z]/.test(pwd);
+	const hasUppercase = /[A-Z]/.test(pwd);
+	const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(pwd);
+	const hasNumber = /\d/.test(pwd);
+
+	const securityLevel = [hasLowercase, hasUppercase, hasSpecialChar, hasNumber].filter(Boolean).length;
+
+	progressBarColor(securityLevel);
+};
+
+
+function progressBarColor(securityLevel) {
+	console.log(securityLevel);
+	$(".progress-container .progress-bar").each(function(index) {
+		if (index < securityLevel) {
+			$(this).css("width", "100%");
+
+			if (index === 0) {
+				$(this).addClass("progress-bar-danger");
+			} else if (index === 1) {
+				$(this).addClass("progress-bar-warning");
+			} else if (index === 2) {
+				$(this).addClass("progress-bar-info");
+			} else if (index === 3) {
+				$(this).addClass("progress-bar-success");
+			}
+		} else {
+			$(this).css("width", "0%");
+			$(this).removeClass("progress-bar-danger progress-bar-warning progress-bar-info progress-bar-success");
+		}
+	});
+};
+
+
 function registerCheck() {
 	let contextPath = getContextPath();
 	memberId = $("#inputId").val();
 
 	$.ajax({
-		url: `${contextPath}/memberRegisterCheck.do`,
+		url: `${contextPath} / memberRegisterCheck.do`,
 		type: "get",
 		data: { "memberId": memberId },
 
@@ -55,7 +92,6 @@ function registerCheck() {
 		}
 	});
 };
-
 
 function getContextPath() {
 	let path = window.location.pathname;
