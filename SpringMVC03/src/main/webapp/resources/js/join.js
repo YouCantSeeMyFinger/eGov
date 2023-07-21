@@ -29,6 +29,19 @@ function checkinputPwd() {
 	}
 };
 
+function checkinputPwd2() {
+	let pwd1 = $("#inputPwd").val();
+	let pwd2 = $("#inputPwd2").val();
+
+	if (pwd1 !== pwd2) {
+		$("#checkInputbox").html("비밀번호가 일치하지 않습니다.");
+		$("#checkInputbox").css("color", "red");
+	} else {
+		$("#checkInputbox").html("비밀번호가 일치합니다.");
+		$("#checkInputbox").css("color", "green");
+	}
+}
+
 
 function securityBar(pwd) {
 
@@ -71,7 +84,7 @@ function registerCheck() {
 	memberId = $("#inputId").val();
 
 	$.ajax({
-		url: `${contextPath} / memberRegisterCheck.do`,
+		url: `${contextPath}/memberRegisterCheck.do`,
 		type: "get",
 		data: { "memberId": memberId },
 

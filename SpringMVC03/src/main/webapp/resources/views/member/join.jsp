@@ -101,8 +101,9 @@
 								<td><input type="password"
 									placeholder="다시 한번 비밀번호를 입력해주세요." class="form-control"
 									id="inputPwd2" name="inputPwd2" autocomplete="current-password"
-									onkeyup="checkinputPwd()" /></td>
-								<td style="vertical-align: middle;" id="checkInputbox"></td>
+									onkeyup="checkinputPwd2()" /></td>
+								<td style="vertical-align: middle; font-size: 5px;"
+									id="checkInputbox"></td>
 							</tr>
 
 							<tr>
