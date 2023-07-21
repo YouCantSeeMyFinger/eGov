@@ -42,6 +42,8 @@
 			<div class="panel-body">
 
 				<form action="${contextPath}/memberRegister.do" method="post">
+					<input type="hidden" name="memberPassword" value=""
+						id="memberPassword" />
 					<table class="table table-bordered"
 						style="text-align: center; border: 1px solid;">
 						<tbody>

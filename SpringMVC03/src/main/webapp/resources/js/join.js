@@ -39,6 +39,7 @@ function checkinputPwd2() {
 	} else {
 		$("#checkInputbox").html("비밀번호가 일치합니다.");
 		$("#checkInputbox").css("color", "green");
+		$("#memberPassword").val(pwd1);
 	}
 }
 
@@ -54,6 +55,7 @@ function securityBar(pwd) {
 
 	progressBarColor(securityLevel);
 };
+
 
 
 function progressBarColor(securityLevel) {
