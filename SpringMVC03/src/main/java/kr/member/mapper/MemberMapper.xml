@@ -3,11 +3,16 @@
 <!-- 회원 관련 JAVA Logic과 DB를 연결시키기 위해 만든 Mapper입니다. -->
 <mapper namespace="kr.member.mapper.MemberMapper">
 
-	<select id="registerCheck" resultType="kr.board.user.Member">
+	<select id="registerCheck" resultType="kr.board.user.Member"
+		parameterType="String">
 		SELECT * FROM MEMBER WHERE
 		memberID = #{memberId}
 	</select>
 
+	<insert id="registerMember" parameterType="kr.board.user.Member">
+		INSERT INTO MEMBER(memberID , memberPassword , memberName , memberAge,memberGender, memberEmail , memberProfile)
+		VALUES (#{memberId} ,#{memberPassword} ,#{memberName} , #{memberAge}, #{memberGender} ,#{memberEmail} ,#{memberProfile})
+	</insert>
 
 </mapper>
 

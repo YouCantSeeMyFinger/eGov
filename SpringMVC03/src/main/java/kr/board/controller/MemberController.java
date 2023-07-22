@@ -1,16 +1,19 @@
 package kr.board.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.board.user.Member;
 import kr.member.mapper.MemberMapper;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @RequiredArgsConstructor
@@ -48,14 +51,36 @@ public class MemberController {
 		return 1;
 	}
 
+	@SuppressWarnings("unlikely-arg-type")
 	@PostMapping("memberRegister.do")
-	public String memRegister(Member member) {
+	public String memRegister(Member member, RedirectAttributes redirectAttribute, HttpSession session) {
+		if (member.getMemberId() == null || member.getMemberId().equals("") || member.getMemberAge() == null
+				|| member.getMemberAge().equals("") || member.getMemberEmail() == null
+				|| member.getMemberEmail().equals("") || member.getMemberGender() == null
+				|| member.getMemberGender().equals("") || member.getMemberPassword() == null
+				|| member.getMemberPassword().equals("") || member.getMemberName() == null
+				|| member.getMemberName().equals("")) {
+			redirectAttribute.addFlashAttribute("msgType", "실패 메시지");
+			redirectAttribute.addFlashAttribute("msg", "회원가입시 빈 칸을 모두 채워주세요.");
 
-		if (member.getMemberId() == null || member.getMemberId().equals("")) {
+			return "redirect:/memJoin.do";
+		}
+		member.setMemberProfile("");
+		int result = this.memberMapper.registerMember(member);
 
+		if (result == 1) {
+			redirectAttribute.addFlashAttribute("msgType", "성공 메시지");
+			redirectAttribute.addFlashAttribute("msg", "회원가입 완료되었습니다.");
+
+			// 회원가입 완료 시 로그인 되도록 하기 위해 세션을 생성
+			session.setAttribute("member", member);
+			return "redirect:/";
+		} else {
+			redirectAttribute.addFlashAttribute("msgType", "실패 메시지");
+			redirectAttribute.addFlashAttribute("msg", "회원가입 실패하였습니다.");
+			return "redirect:/memJoin.do";
 		}
 
-		return "ok";
 	}
 
 }

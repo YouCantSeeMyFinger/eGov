@@ -9,7 +9,7 @@ public class Member {
 	private String memberId;
 	private String memberPassword;
 	private String memberName;
-	private int memberAge;
+	private Integer memberAge;
 	private String memberGender;
 	private String memberEmail;
 	private String memberProfile;
