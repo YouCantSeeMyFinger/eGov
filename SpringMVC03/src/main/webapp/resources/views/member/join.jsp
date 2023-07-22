@@ -48,7 +48,8 @@
 								<td style="width: 100px; vertical-align: middle;">아이디</td>
 								<td><input type="text" class="form-control"
 									placeholder="아이디를 입력해주세요." id="inputId"
-									onkeyup="checkinputId()" autocomplete="username" name="inputId" /></td>
+									onkeyup="checkinputId()" autocomplete="username"
+									name="memberId" /></td>
 
 								<td style="width: 110px"><button type="button"
 										class="btn btn-sm btn-primary" style="vertical-align: middle;"
@@ -104,14 +105,14 @@
 							<tr>
 								<td style="vertical-align: middle;">사용자 이름</td>
 								<td><input type="text" placeholder="사용자 이름을 입력해주세요."
-									class="form-control" id="inputUserName" name="inputUserName" /></td>
+									class="form-control" id="inputUserName" name="memberName" /></td>
 								<td style="vertical-align: middle;"></td>
 							</tr>
 
 							<tr>
 								<td style="vertical-align: middle;">나이</td>
 								<td><input type="text" placeholder="나이를 입력해주세요."
-									class="form-control" id="inputAge" name="inputAge" /></td>
+									class="form-control" id="inputAge" name="memberAge" /></td>
 								<td style="vertical-align: middle;"></td>
 							</tr>
 							<tr>
@@ -122,10 +123,10 @@
 										<div class="btn-group" data-toggle="buttons">
 											<label class="btn btn-primary active"> <input
 												type="radio" autocomplete="off" value="남자"
-												id="checkGenderMale" name="checkGenderMale" checked>남자</input>
+												id="checkGenderMale" name="memberGender" checked>남자</input>
 											</label> <label class="btn btn-primary active"> <input
 												type="radio" autocomplete="off" value="여자"
-												id="checkGenderFemale" name="checkGenderFemale">여자 </input>
+												id="checkGenderFemale" name="memberGender">여자 </input>
 											</label>
 										</div>
 
@@ -135,8 +136,7 @@
 							<tr>
 								<td style="vertical-align: middle;">이메일</td>
 								<td><input type="text" placeholder="이메일을 입력해주세요."
-									class="form-control" id="inputEmail"
-									name="inputEmail /></td>
+									class="form-control" id="inputEmail" name="memberEmail" /></td>
 								<td style="vertical-align: middle;"></td>
 							</tr>
 							<tr>
@@ -150,7 +150,7 @@
 					</table>
 				</form>
 			</div>
-		
+
 			<div id="myModal" class="modal fade" role="dialog">
 				<div class="modal-dialog">
 					<div class="modal-content panel-info" id="checkType">
@@ -162,12 +162,13 @@
 							<p id="checkMessage"></p>
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">Close</button>
 						</div>
 					</div>
 				</div>
 			</div>
-			
+
 			<div id="memberModal" class="modal fade" role="dialog">
 				<div class="modal-dialog">
 					<div class="modal-content panel-info" id="memberModalHead">
@@ -179,7 +180,8 @@
 							<p>${msg}</p>
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">Close</button>
 						</div>
 					</div>
 				</div>
@@ -187,12 +189,12 @@
 			<div class="panel-footer">Footer</div>
 		</div>
 	</div>
-	
-<!-- Script를 최대한 외부파일에서 해결하려했으나 리다이렉트 받은 값을 외부 js파일에서 바로 jstl문법을 사용해서 사용하려했으나 안된다. 떄문에 jsp파일에서 한번 처리를 한 후 js파일로 넘겨주는 방법을 선택  -->	
+
+	<!-- Script를 최대한 외부파일에서 해결하려했으나 리다이렉트 받은 값을 외부 js파일에서 바로 jstl문법을 사용해서 사용하려했으나 안된다. 떄문에 jsp파일에서 한번 처리를 한 후 js파일로 넘겨주는 방법을 선택  -->
 	<script>
 		const msgType = ${!empty msgType};
 		const msg = ${!empty msg};
 	</script>
-	
+
 </body>
 </html>

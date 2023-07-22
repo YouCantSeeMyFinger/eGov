@@ -1,5 +1,6 @@
 package kr.board.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -14,7 +15,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import kr.board.user.Member;
 import kr.member.mapper.MemberMapper;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Controller
 @RequiredArgsConstructor
 public class MemberController {
@@ -52,20 +55,32 @@ public class MemberController {
 	}
 
 	@SuppressWarnings("unlikely-arg-type")
-	@PostMapping("memberRegister.do")
-	public String memRegister(Member member, RedirectAttributes redirectAttribute, HttpSession session) {
+	@PostMapping("/memberRegister.do")
+	public String memRegister(Member member, RedirectAttributes redirectAttribute, HttpSession session,
+			HttpServletRequest request) {
+
+		log.info("member : {}", member);
+
+		// 빈칸에 정보를 입력하지 않았을 경우
 		if (member.getMemberId() == null || member.getMemberId().equals("") || member.getMemberAge() == null
 				|| member.getMemberAge().equals("") || member.getMemberEmail() == null
 				|| member.getMemberEmail().equals("") || member.getMemberGender() == null
-				|| member.getMemberGender().equals("") || member.getMemberPassword() == null
-				|| member.getMemberPassword().equals("") || member.getMemberName() == null
+				|| member.getMemberGender().equals("") || member.getMemberName() == null
 				|| member.getMemberName().equals("")) {
 			redirectAttribute.addFlashAttribute("msgType", "실패 메시지");
 			redirectAttribute.addFlashAttribute("msg", "회원가입시 빈 칸을 모두 채워주세요.");
-
 			return "redirect:/memJoin.do";
 		}
+
+		// 두 비밀번호의 값이 다른 경우
+		if (!request.getParameter("inputPwd").equals(request.getParameter("inputPwd2"))) {
+			redirectAttribute.addFlashAttribute("msgType", "실패 메시지");
+			redirectAttribute.addFlashAttribute("msg", "비밀번호가 일치하지 않습니다.");
+			return "redirect:/memJoin.do";
+		}
+
 		member.setMemberProfile("");
+
 		int result = this.memberMapper.registerMember(member);
 
 		if (result == 1) {

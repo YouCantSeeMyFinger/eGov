@@ -1,7 +1,9 @@
 package kr.board.user;
 
 import lombok.Data;
+import lombok.ToString;
 
+@ToString
 @Data
 public class Member {
 
