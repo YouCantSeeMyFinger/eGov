@@ -5,7 +5,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -96,6 +95,38 @@ public class MemberController {
 			return "redirect:/memJoin.do";
 		}
 
+	}
+
+	/**
+	 * 로그아웃 처리
+	 * 
+	 * @return
+	 */
+	@RequestMapping("/memberLogout.do")
+	public String memberLogout(HttpSession session) {
+		session.invalidate();
+		return "redirect:/";
+	}
+
+	@RequestMapping("/memberLoginForm.do")
+	public String memberLoginForm() {
+		log.info("memberLoginForm.do :: Invoked");
+		return "member/memberLoginForm";
+	}
+
+	@RequestMapping("/memberLogin.do")
+	public String memberLogin(HttpSession session, RedirectAttributes redirect, Member member) {
+
+		log.info("member : {}", member);
+
+		if (member.getMemberId().equals("") || member.getMemberId() == null || member.getMemberPassword().equals("")
+				|| member.getMemberPassword() == null) {
+			redirect.addFlashAttribute("msgType", "로그인 오류");
+			redirect.addFlashAttribute("msg", "비밀번호 및 아이디를 확인해주세요.");
+			return "redirect:/memberLoginForm.do";
+		}
+
+		return "";
 	}
 
 }
