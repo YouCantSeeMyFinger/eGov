@@ -25,7 +25,9 @@
 				</a>
 					<ul class="dropdown-menu">
 						<li><a href="${contextPath}/boardMain.do">자유 게시판</a></li>
+						<li role="presentation" class="divider"></li>
 						<li><a href="#">Page 1-2</a></li>
+						<li role="presentation" class="divider"></li>
 						<li><a href="#">Page 1-3</a></li>
 					</ul></li>
 
@@ -57,8 +59,16 @@
 			<!-- 로그인 했을 때 -->
 			<c:if test="${!empty member}">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#"><span class="glyphicon glyphicon-user"></span>
-							회원 정보</a></li>
+					<li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown" href="#">"${member.memberName}"님 환영합니다.<span
+							class="caret"></span>
+					</a>
+						<ul class="dropdown-menu">
+							<li role="prsentation"><a href="#">프로필 수정</a></li>
+							<li role="presentation" class="divider"></li>
+							<li role="presentation"><a href="#">회원정보 관리</a></li>
+						</ul></li>
+
 					<li><a href="#"><span class="glyphicon glyphicon-refresh"></span>
 							알림</a></li>
 					<li><a href="${contextPath}/memberLogout.do"><span

@@ -1,5 +1,7 @@
 package kr.board.controller;
 
+import java.util.Optional;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -117,16 +119,19 @@ public class MemberController {
 	@RequestMapping("/memberLogin.do")
 	public String memberLogin(HttpSession session, RedirectAttributes redirect, Member member) {
 
-		log.info("member : {}", member);
+		// NullPointException 주의
+		Optional<Member> mvo = Optional.ofNullable((this.memberMapper.memberLogin(member)));
 
-		if (member.getMemberId().equals("") || member.getMemberId() == null || member.getMemberPassword().equals("")
-				|| member.getMemberPassword() == null) {
+		// 로그인 로직
+		if (mvo.isPresent()) {
+			session.setAttribute("member", mvo.get());
+			session.setMaxInactiveInterval(1800);
+			return "redirect:/";
+		} else {
 			redirect.addFlashAttribute("msgType", "로그인 오류");
 			redirect.addFlashAttribute("msg", "비밀번호 및 아이디를 확인해주세요.");
 			return "redirect:/memberLoginForm.do";
 		}
-
-		return "";
 	}
 
 }
