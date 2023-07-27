@@ -64,7 +64,8 @@
 							class="caret"></span>
 					</a>
 						<ul class="dropdown-menu">
-							<li role="prsentation"><a href="#">프로필 수정</a></li>
+							<li role="prsentation"><a
+								href="${contextPath}/memberprofile.do">프로필 수정</a></li>
 							<li role="presentation" class="divider"></li>
 							<li role="presentation"><a href="#">회원정보 관리</a></li>
 						</ul></li>

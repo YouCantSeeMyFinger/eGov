@@ -24,9 +24,36 @@
 <body>
 	<div class="container">
 		<jsp:include page="common/menubar.jsp"></jsp:include>
-		<h3>Right Aligned Navbar</h3>
-		<p>The .navbar-right class is used to right-align navigation bar
-			buttons.</p>
+
+		<div class="panel-default panel">
+			<div>
+				<img src="${contextPath}/resources/images/main.jpg"
+					style="width: 100%; height: 400px;" />
+			</div>
+			<div class="panel-body">
+				<ul class="nav nav-tabs">
+					<li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+					<li><a data-toggle="tab" href="#menu1">작성글</a></li>
+					<li><a data-toggle="tab" href="#menu2">공지사항</a></li>
+				</ul>
+
+				<div class="tab-content">
+					<div id="home" class="tab-pane fade in active">
+						<h3>HOME</h3>
+						<p>Some content.</p>
+					</div>
+					<div id="menu1" class="tab-pane fade">
+						<h3>작성한 게시글</h3>
+						<p>Some content in menu 1.</p>
+					</div>
+					<div id="menu2" class="tab-pane fade">
+						<h3>공지사항</h3>
+						<p>Some content in menu 2.</p>
+					</div>
+				</div>
+			</div>
+			<div class="panel-footer">eGov ProJect</div>
+		</div>
 	</div>
 
 	<div id="loginModal" class="modal fade" role="dialog">
@@ -45,12 +72,9 @@
 			</div>
 		</div>
 	</div>
-
 	<script>
 		const msgType = ${!empty msgType};
 		const msg = ${!empty msg};
 	</script>
-
-
 </body>
 </html>
