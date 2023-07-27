@@ -18,6 +18,9 @@ import kr.member.mapper.MemberMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
+
+// #TODO RESTfull로 변환할것
+
 @Slf4j
 @Controller
 @RequiredArgsConstructor
