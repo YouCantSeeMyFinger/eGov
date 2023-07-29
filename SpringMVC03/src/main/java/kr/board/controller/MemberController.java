@@ -135,6 +135,8 @@ public class MemberController {
 			redirect.addFlashAttribute("msg", "비밀번호 및 아이디를 확인해주세요.");
 			return "redirect:/memberLoginForm.do";
 		}
+		
+//		임시 저장
 	}
 
 }
