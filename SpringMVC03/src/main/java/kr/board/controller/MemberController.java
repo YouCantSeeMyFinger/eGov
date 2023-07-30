@@ -18,7 +18,6 @@ import kr.member.mapper.MemberMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-
 // #TODO RESTfull로 변환할것
 
 @Slf4j
@@ -135,8 +134,15 @@ public class MemberController {
 			redirect.addFlashAttribute("msg", "비밀번호 및 아이디를 확인해주세요.");
 			return "redirect:/memberLoginForm.do";
 		}
-		
-//		임시 저장
+
+	}
+
+	// 회원정보수정
+
+	@RequestMapping("/memberprofile.do")
+	public String memberUdpateForm(HttpSession session) {
+
+		return "member/updateForm";
 	}
 
 }
