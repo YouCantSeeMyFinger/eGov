@@ -40,17 +40,14 @@
 
 				<form action="${contextPath}/memberUpdate.do" method="post">
 					<input type="hidden" name="memberPassword"
-						value="${member.memberId}" id="memberPassword" />
+						value="${member.memberId}" id="memberId" />
 					<table class="table table-bordered"
 						style="text-align: center; border: 1px solid;">
 						<tbody>
 
 							<tr>
 								<td style="width: 100px; vertical-align: middle;">아이디</td>
-								<td colspan="2"><input type="text" class="form-control"
-									placeholder="아이디를 입력해주세요." id="inputId"
-									onkeyup="checkinputId()" autocomplete="username"
-									name="memberId" /></td>
+								<td colspan="2">${member.memberId}</td>
 							</tr>
 
 							<tr>
@@ -102,16 +99,12 @@
 							</tr>
 							<tr>
 								<td style="vertical-align: middle;">사용자 이름</td>
-								<td colspan="2"><input type="text"
-									placeholder="사용자 이름을 입력해주세요." class="form-control"
-									id="inputUserName" name="memberName" /></td>
+								<td colspan="2">${member.memberName}</td>
 							</tr>
 
 							<tr>
 								<td style="vertical-align: middle;">나이</td>
-								<td colspan="2"><input type="text"
-									placeholder="나이를 입력해주세요." class="form-control" id="inputAge"
-									name="memberAge" /></td>
+								<td colspan="2">${member.memberAge}</td>
 							</tr>
 							<tr>
 								<td style="vertical-align: middle;">성별</td>
@@ -132,9 +125,7 @@
 							</tr>
 							<tr>
 								<td style="vertical-align: middle;">이메일</td>
-								<td colspan="2"><input type="text"
-									placeholder="이메일을 입력해주세요." class="form-control" id="inputEmail"
-									name="memberEmail" /></td>
+								<td colspan="2">${member.memberEmail}</td>
 							</tr>
 							<tr>
 								<td colspan="3">

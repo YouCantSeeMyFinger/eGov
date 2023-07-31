@@ -123,7 +123,7 @@ public class MemberController {
 
 		// NullPointException 주의
 		Optional<Member> mvo = Optional.ofNullable((this.memberMapper.memberLogin(member)));
-		
+
 		// 로그인 로직
 		if (mvo.isPresent()) {
 			session.setAttribute("member", mvo.get());
