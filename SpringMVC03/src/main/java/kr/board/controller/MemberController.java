@@ -123,7 +123,7 @@ public class MemberController {
 
 		// NullPointException 주의
 		Optional<Member> mvo = Optional.ofNullable((this.memberMapper.memberLogin(member)));
-
+		
 		// 로그인 로직
 		if (mvo.isPresent()) {
 			session.setAttribute("member", mvo.get());
@@ -137,11 +137,10 @@ public class MemberController {
 
 	}
 
-	// 회원정보수정
+	// 회원정보수정 컨트롤러
 
-	@RequestMapping("/memberprofile.do")
+	@RequestMapping("/memberUpdate.do")
 	public String memberUdpateForm(HttpSession session) {
-
 		return "member/updateForm";
 	}
 

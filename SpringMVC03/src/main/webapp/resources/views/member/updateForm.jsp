@@ -22,7 +22,7 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
 
-<script src="${contextPath}/resources/js/join.js"></script>
+<script src="${contextPath}/resources/js/memberUpdateForm.js"></script>
 </head>
 
 <body>
@@ -38,21 +38,19 @@
 			</div>
 			<div class="panel-body">
 
-				<form action="${contextPath}/memberRegister.do" method="post">
-					<input type="hidden" name="memberPassword" value=""
-						id="memberPassword" />
+				<form action="${contextPath}/memberUpdate.do" method="post">
+					<input type="hidden" name="memberPassword"
+						value="${member.memberId}" id="memberPassword" />
 					<table class="table table-bordered"
 						style="text-align: center; border: 1px solid;">
 						<tbody>
 
 							<tr>
 								<td style="width: 100px; vertical-align: middle;">아이디</td>
-								<td><input type="text" class="form-control"
+								<td colspan="2"><input type="text" class="form-control"
 									placeholder="아이디를 입력해주세요." id="inputId"
 									onkeyup="checkinputId()" autocomplete="username"
 									name="memberId" /></td>
-							<td></td>
-					
 							</tr>
 
 							<tr>
@@ -104,20 +102,20 @@
 							</tr>
 							<tr>
 								<td style="vertical-align: middle;">사용자 이름</td>
-								<td><input type="text" placeholder="사용자 이름을 입력해주세요."
-									class="form-control" id="inputUserName" name="memberName" /></td>
-								<td style="vertical-align: middle;"></td>
+								<td colspan="2"><input type="text"
+									placeholder="사용자 이름을 입력해주세요." class="form-control"
+									id="inputUserName" name="memberName" /></td>
 							</tr>
 
 							<tr>
 								<td style="vertical-align: middle;">나이</td>
-								<td><input type="text" placeholder="나이를 입력해주세요."
-									class="form-control" id="inputAge" name="memberAge" /></td>
-								<td style="vertical-align: middle;"></td>
+								<td colspan="2"><input type="text"
+									placeholder="나이를 입력해주세요." class="form-control" id="inputAge"
+									name="memberAge" /></td>
 							</tr>
 							<tr>
 								<td style="vertical-align: middle;">성별</td>
-								<td>
+								<td colspan="2">
 									<div class="form-group"
 										style="text-align: center; margin: 0 auto;">
 										<div class="btn-group" data-toggle="buttons">
@@ -129,20 +127,18 @@
 												id="checkGenderFemale" name="memberGender">여자 </input>
 											</label>
 										</div>
-
 									</div>
 								</td>
-								<td></td>
 							</tr>
 							<tr>
 								<td style="vertical-align: middle;">이메일</td>
-								<td><input type="text" placeholder="이메일을 입력해주세요."
-									class="form-control" id="inputEmail" name="memberEmail" /></td>
-								<td style="vertical-align: middle;"></td>
+								<td colspan="2"><input type="text"
+									placeholder="이메일을 입력해주세요." class="form-control" id="inputEmail"
+									name="memberEmail" /></td>
 							</tr>
 							<tr>
 								<td colspan="3">
-									<button type="submit" class="btn btn-sm btn-primary">등록</button>
+									<button type="submit" class="btn btn-sm btn-primary">수정</button>
 									<button type="reset" class="btn btn-sm btn-warning"
 										onclick="location.href='${contextPath}'">취소</button>
 								</td>
