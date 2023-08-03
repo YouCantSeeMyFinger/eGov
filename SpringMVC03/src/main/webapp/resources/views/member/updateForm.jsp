@@ -102,6 +102,8 @@
 								<td colspan="2">${member.memberName}</td>
 							</tr>
 
+						
+
 							<tr>
 								<td style="vertical-align: middle;">나이</td>
 								<td colspan="2">${member.memberAge}</td>
