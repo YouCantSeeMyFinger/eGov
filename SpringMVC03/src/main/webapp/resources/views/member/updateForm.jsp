@@ -102,7 +102,7 @@
 								<td colspan="2">${member.memberName}</td>
 							</tr>
 
-						
+
 
 							<tr>
 								<td style="vertical-align: middle;">나이</td>
@@ -114,17 +114,24 @@
 									<div class="form-group"
 										style="text-align: center; margin: 0 auto;">
 										<div class="btn-group" data-toggle="buttons">
-											<label class="btn btn-primary active"> <input
+
+
+											<label
+												class="btn btn-primary <c:if test="${member.memberGender eq '남자'}">active</c:if>"><input
 												type="radio" autocomplete="off" value="남자"
-												id="checkGenderMale" name="memberGender" checked>남자</input>
-											</label> <label class="btn btn-primary active"> <input
-												type="radio" autocomplete="off" value="여자"
-												id="checkGenderFemale" name="memberGender">여자 </input>
+												id="checkGenderMale" name="memberGender"
+												<c:if test="${member.memberGender eq '남자'}">checked</c:if>>남자</input>
+											</label> <label
+												class="btn btn-primary <c:if test="${member.memberGender eq '여자'}">active</c:if>">
+												<input type="radio" autocomplete="off" value="여자"
+												id="checkGenderFemale" name="memberGender"
+												<c:if test="${member.memberGender eq '여자'}">checked</c:if>>여자</input>
 											</label>
 										</div>
 									</div>
 								</td>
 							</tr>
+
 							<tr>
 								<td style="vertical-align: middle;">이메일</td>
 								<td colspan="2">${member.memberEmail}</td>
