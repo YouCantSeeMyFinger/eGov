@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -127,6 +128,10 @@ public class MemberController {
 		// 로그인 로직
 		if (mvo.isPresent()) {
 			session.setAttribute("member", mvo.get());
+			// 세션 만료 일정 추가
+			// 쿠키와 세션의 차이 
+			// 쿠키의 경우 클라이언트 측에서 만료기간을 따로 저장하지 않는 이상 파일로 저장되기 때문에 보안에 취약
+			// 하지만 세션의 경우 만료시간을 정하지 않는 경우 홈페이지를 닫는 경우 자동 만료
 			session.setMaxInactiveInterval(1800);
 			return "redirect:/";
 		} else {
@@ -140,7 +145,8 @@ public class MemberController {
 	// 회원정보수정 컨트롤러
 
 	@RequestMapping("/memberUpdate.do")
-	public String memberUdpateForm(HttpSession session) {
+	public String memberUdpateForm(HttpSession session, @ModelAttribute Member member) {
+		log.info("member");
 		return "member/updateForm";
 	}
 

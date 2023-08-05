@@ -40,7 +40,7 @@
 
 				<form action="${contextPath}/memberUpdate.do" method="post">
 					<input type="hidden" name="memberPassword"
-						value="${member.memberId}" id="memberId" />
+						value="${member.memberPassword}" id="memberPassword" />
 					<table class="table table-bordered"
 						style="text-align: center; border: 1px solid;">
 						<tbody>
