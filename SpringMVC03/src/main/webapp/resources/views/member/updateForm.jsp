@@ -39,8 +39,13 @@
 			<div class="panel-body">
 
 				<form action="${contextPath}/memberUpdate.do" method="post">
+
 					<input type="hidden" name="memberPassword"
-						value="${member.memberPassword}" id="memberPassword" />
+						value="${member.memberPassword}" id="memberPassword" /> <input
+						type="hidden" name="memberId" value="${member.memberId}" /> <input
+						type="hidden" name="memberName" value="${member.memberName}" /> <input
+						type="hidden" name="memberAge" value="${member.memberAge}" /> <input
+						type="hidden" name="memberEmail" value="${member.memberEmail}" />
 					<table class="table table-bordered"
 						style="text-align: center; border: 1px solid;">
 						<tbody>
@@ -54,7 +59,7 @@
 								<td style="vertical-align: middle;">비밀번호</td>
 								<td><input type="password" placeholder="비밀번호를 입력해주세요."
 									class="form-control" onkeyup="checkinputPwd()" id="inputPwd"
-									autocomplete="current-password" name="inputPwd" /></td>
+									autocomplete="current-password" /></td>
 
 								<td style="vertical-align: middle; font-size: 3px"><span>보안
 										상태</span>
