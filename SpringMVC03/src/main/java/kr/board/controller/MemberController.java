@@ -150,10 +150,17 @@ public class MemberController {
 	}
 
 	@PostMapping("/memberUpdate.do")
-	@ResponseBody
 	public String memberUpdate(RedirectAttributes rttr, Member member, String memberPassword) {
+
+		if (member.getMemberPassword().equals("") || member.getMemberPassword() == null) {
+			log.info("member : {}", member);
+			rttr.addFlashAttribute("msgType", "수정 실패");
+			rttr.addFlashAttribute("msg", "비밀번호를 입력해주세요.");
+			return "redirect:/memberUpdateForm";
+		}
+
 		log.info("member : {}", member);
-		log.info("memberPassword : {}", memberPassword);
-		return "success";
+
+		return "redirect:/";
 	}
 }

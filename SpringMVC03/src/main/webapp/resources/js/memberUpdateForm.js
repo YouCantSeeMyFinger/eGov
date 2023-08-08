@@ -9,20 +9,6 @@ $(document).ready(function() {
 
 });
 
-
-function checkinputId() {
-	let inputValue = $("#inputId").val();
-	let valueCount = inputValue.length;
-
-	console.log("valueCount :", valueCount);
-
-	if (valueCount > 10) {
-		inputValue = inputValue.substring(0, 10);
-		alert("아이디는 10자이하만 가능합니다.");
-		$("#inputId").val(inputValue);
-	}
-};
-
 function checkinputPwd() {
 	let inputValue = $("#inputPwd").val();
 	let valueCount = inputValue.length;
@@ -43,6 +29,7 @@ function checkinputPwd2() {
 	if (pwd1 !== pwd2) {
 		$("#checkInputbox").html("비밀번호가 일치하지 않습니다.");
 		$("#checkInputbox").css("color", "red");
+		$("#memberPassword").val(null);
 	} else {
 		$("#checkInputbox").html("비밀번호가 일치합니다.");
 		$("#checkInputbox").css("color", "green");
@@ -86,7 +73,6 @@ function progressBarColor(securityLevel) {
 		}
 	});
 };
-
 
 function getContextPath() {
 	let path = window.location.pathname;
