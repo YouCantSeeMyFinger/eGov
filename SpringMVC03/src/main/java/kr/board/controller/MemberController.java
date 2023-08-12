@@ -152,15 +152,16 @@ public class MemberController {
 	@PostMapping("/memberUpdate.do")
 	public String memberUpdate(RedirectAttributes rttr, Member member, String memberPassword) {
 
+		// 실패 로직
 		if (member.getMemberPassword().equals("") || member.getMemberPassword() == null) {
 			log.info("member : {}", member);
-			rttr.addFlashAttribute("msgType", "수정 실패");
+			rttr.addFlashAttribute("msgType", "입력하신 비밀번호는 사용할 수 없습니다.");
 			rttr.addFlashAttribute("msg", "비밀번호를 입력해주세요.");
 			return "redirect:/memberUpdateForm";
 		}
 
-		log.info("member : {}", member);
-
+		// 성공 로직
+		this.memberMapper.memberUpdate(member);
 		return "redirect:/";
 	}
 }

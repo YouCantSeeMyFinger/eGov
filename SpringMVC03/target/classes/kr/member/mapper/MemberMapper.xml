@@ -21,6 +21,10 @@
 		      memberPassword = #{memberPassword}
 	</select>
 	
+	<update id="memberUpdate" parameterType="kr.board.user.Member">
+		update member set memberPassword= #{memberPassword} where memberId=#{memberId}
+	</update>
+	
 </mapper>
 
 
