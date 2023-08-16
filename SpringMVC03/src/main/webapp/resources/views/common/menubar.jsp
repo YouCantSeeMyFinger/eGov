@@ -67,7 +67,7 @@
 							<li role="prsentation"><a
 								href="${contextPath}/memberUpdateForm">회원정보 수정</a></li>
 							<li role="presentation" class="divider"></li>
-							<li role="presentation"><a href="#">프로필 수정</a></li>
+							<li role="presentation"><a href="${contextPath}/memberImageForm.do"><span class="glyphicon glyphicon-picture" style="margin-right : 10px"></span>사진등록</a></li>
 						</ul></li>
 
 					<li><a href="#"><span class="glyphicon glyphicon-refresh"></span>

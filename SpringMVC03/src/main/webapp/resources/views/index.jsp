@@ -24,17 +24,29 @@
 <body>
 	<div class="container">
 		<jsp:include page="common/menubar.jsp"></jsp:include>
-
 		<div class="panel-default panel">
-			<div>
-				<img src="${contextPath}/resources/images/main.jpg"
-					style="width: 100%; height: 400px;" />
-			</div>
+
+			<c:choose>
+				<c:when test="${empty member.memberProfile}">
+					<div>
+						<img src="${contextPath}/resources/images/main.jpg"
+							style="width: 100%; height: 200px;" alt="사진" />
+						<!-- empty -->
+					</div>
+				</c:when>
+				<c:otherwise>
+					<div>
+						<img src="${member.memberProfile}"
+							style="width: 100%; height: 200px;" alt="사진" />
+					</div>
+					<!-- not empty -->
+				</c:otherwise>
+			</c:choose>
+
 			<div class="panel-body">
 				<ul class="nav nav-tabs">
-					<li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+					<li class="active"><a data-toggle="tab" href="#home">공지사항</a></li>
 					<li><a data-toggle="tab" href="#menu1">작성글</a></li>
-					<li><a data-toggle="tab" href="#menu2">공지사항</a></li>
 				</ul>
 
 				<div class="tab-content">
@@ -46,15 +58,12 @@
 						<h3>작성한 게시글</h3>
 						<p>Some content in menu 1.</p>
 					</div>
-					<div id="menu2" class="tab-pane fade">
-						<h3>공지사항</h3>
-						<p>Some content in menu 2.</p>
-					</div>
 				</div>
 			</div>
-			<div class="panel-footer">eGov ProJect</div>
+			<div class="panel-footer"></div>
 		</div>
 	</div>
+
 
 	<div id="loginModal" class="modal fade" role="dialog">
 		<div class="modal-dialog">
@@ -76,5 +85,6 @@
 		const msgType = ${!empty msgType};
 		const msg = ${!empty msg};
 	</script>
+
 </body>
 </html>

@@ -3,16 +3,22 @@
 <!-- 회원 관련 JAVA Logic과 DB를 연결시키기 위해 만든 Mapper입니다. -->
 <mapper namespace="kr.member.mapper.MemberMapper">
 
+	<!-- 회원 중복확인 -->
+
 	<select id="registerCheck" resultType="kr.board.user.Member"
 		parameterType="String">
 		SELECT * FROM MEMBER WHERE
 		memberID = #{memberId}
 	</select>
 
+	<!-- 회원 생성 --> 
+
 	<insert id="registerMember" parameterType="kr.board.user.Member">
 		INSERT INTO MEMBER(memberID , memberPassword , memberName , memberAge,memberGender, memberEmail , memberProfile)
 		VALUES (#{memberId} ,#{memberPassword} ,#{memberName} , #{memberAge}, #{memberGender} ,#{memberEmail} ,#{memberProfile})
 	</insert>
+
+	<!-- 회원 로그인 -->
 
 	<select id="memberLogin" parameterType="kr.board.user.Member" resultType="kr.board.user.Member">
 		SELECT *
@@ -21,6 +27,8 @@
 		      memberPassword = #{memberPassword}
 	</select>
 	
+	
+	<!-- 회원삭제 -->
 	<update id="memberUpdate" parameterType="kr.board.user.Member">
 		update member set memberPassword= #{memberPassword} where memberId=#{memberId}
 	</update>

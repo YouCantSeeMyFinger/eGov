@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
 import kr.board.user.Member;
 import kr.member.mapper.MemberMapper;
 import lombok.RequiredArgsConstructor;
@@ -164,4 +167,31 @@ public class MemberController {
 		this.memberMapper.memberUpdate(member);
 		return "redirect:/";
 	}
+
+	@GetMapping("/memberImageForm.do")
+	public String memberImageForm() {
+		return "member/memberImageForm";
+	}
+
+	@PostMapping("/memberImageUpdate.do")
+	public String memberImageUpdate(HttpServletRequest request, RedirectAttributes rttr) {
+
+		// api => cos
+		MultipartRequest multi = null;
+		int fileMaxSize = 10 * 1024 * 1024;
+		String fileSavePath = request.getRealPath("resources/upload");
+		log.info(fileSavePath);
+
+		// 오류 발생 = 파일의 크기가 10MB보다 클 경우
+		try {
+			multi = new MultipartRequest(request, fileSavePath, fileMaxSize, "UTF-8", new DefaultFileRenamePolicy());
+		} catch (Exception e) {
+			e.printStackTrace();
+			rttr.addFlashAttribute("msgType", "파일 업로드 실패");
+			rttr.addFlashAttribute("msg", "파일의 용량은 10MB까지만 가능합니다.");
+			return "redirect:/memberImageForm.do";
+		}
+		return "redirect:/";
+	}
+
 }
