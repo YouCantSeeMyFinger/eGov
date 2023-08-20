@@ -34,7 +34,7 @@
 			<div class="panel-body">
 				<form action="${contextPath}/memberImageUpdate.do" method="post"
 					enctype="multipart/form-data">
-					<input type="hidden" value="${member.memberId}"></input>
+					<input type="hidden" value="${member.memberId}" name="memberId"></input>
 					<table class="table table-bordered"
 						style="text-align: center; border: 1px solid;">
 						<tbody>

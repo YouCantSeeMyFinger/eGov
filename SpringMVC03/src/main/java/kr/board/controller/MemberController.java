@@ -1,5 +1,6 @@
 package kr.board.controller;
 
+import java.io.File;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
@@ -174,15 +175,14 @@ public class MemberController {
 	}
 
 	@PostMapping("/memberImageUpdate.do")
-	public String memberImageUpdate(HttpServletRequest request, RedirectAttributes rttr) {
+	public String memberImageUpdate(HttpServletRequest request, RedirectAttributes rttr, HttpSession session) {
 
-		// api => cos
+		// cos
 		MultipartRequest multi = null;
 		int fileMaxSize = 10 * 1024 * 1024;
 		String fileSavePath = request.getRealPath("resources/upload");
-		log.info(fileSavePath);
 
-		// 오류 발생 = 파일의 크기가 10MB보다 클 경우
+		// 파일 의 경로가 잘못된 경우 , 파일이 10MB를 초과하는 경우 예외 발생
 		try {
 			multi = new MultipartRequest(request, fileSavePath, fileMaxSize, "UTF-8", new DefaultFileRenamePolicy());
 		} catch (Exception e) {
@@ -191,6 +191,45 @@ public class MemberController {
 			rttr.addFlashAttribute("msg", "파일의 용량은 10MB까지만 가능합니다.");
 			return "redirect:/memberImageForm.do";
 		}
+
+		String memberId = multi.getParameter("memberId");
+		String newProfile = "";
+		File file = multi.getFile("memberProfile");
+
+		if (file != null) {
+			String ext = file.getName().substring(file.getName().lastIndexOf(".") + 1);
+			ext = ext.toUpperCase();
+
+			if (ext.equals("PNG") || ext.equals("GIF") || ext.equals("JPG")) {
+				String oldProfile = this.memberMapper.getMember(memberId).getMemberProfile();
+				File oldFile = new File(fileSavePath + "/" + oldProfile);
+				if (oldFile.exists()) {
+					oldFile.delete();
+				}
+				// 로그 결과 파일 확장자 까지 가져온다.
+				newProfile = file.getName();
+			} else {
+				// 이미지 파일이 아닌 경우
+				if (file.exists()) {
+					file.delete();
+				}
+				rttr.addFlashAttribute("msgType", "파일 업로드 실패");
+				rttr.addFlashAttribute("msg", "이미지 파일만 업로드 가능합니다.");
+				return "redirect:/memberImageForm.do";
+			}
+		}
+
+		Member member = new Member();
+		member.setMemberId(memberId);
+		member.setMemberProfile(newProfile);
+		this.memberMapper.imageUpdate(member);
+
+		// 업데이트 된 정보를 가져와서 다시 세션 생성
+		Member updatedMember = this.memberMapper.getMember(memberId);
+		session.setAttribute("member", updatedMember);
+
+		rttr.addFlashAttribute("msgType", "파일 업로드 성공");
+		rttr.addFlashAttribute("msg", "파일 업로드가 정상적으로 수행되었습니다.");
 		return "redirect:/";
 	}
 

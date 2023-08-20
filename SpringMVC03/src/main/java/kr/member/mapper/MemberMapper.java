@@ -15,4 +15,7 @@ public interface MemberMapper {
 
 	public void memberUpdate(Member member);
 
+	public Member getMember(String memberId);
+
+	public void imageUpdate(Member member);
 }

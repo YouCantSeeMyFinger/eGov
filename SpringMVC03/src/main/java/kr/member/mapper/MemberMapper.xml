@@ -11,28 +11,44 @@
 		memberID = #{memberId}
 	</select>
 
-	<!-- 회원 생성 --> 
+	<!-- 회원 생성 -->
 
 	<insert id="registerMember" parameterType="kr.board.user.Member">
-		INSERT INTO MEMBER(memberID , memberPassword , memberName , memberAge,memberGender, memberEmail , memberProfile)
-		VALUES (#{memberId} ,#{memberPassword} ,#{memberName} , #{memberAge}, #{memberGender} ,#{memberEmail} ,#{memberProfile})
+		INSERT INTO
+		MEMBER(memberID , memberPassword , memberName ,
+		memberAge,memberGender, memberEmail , memberProfile)
+		VALUES
+		(#{memberId} ,#{memberPassword} ,#{memberName} , #{memberAge},
+		#{memberGender} ,#{memberEmail} ,#{memberProfile})
 	</insert>
 
 	<!-- 회원 로그인 -->
 
-	<select id="memberLogin" parameterType="kr.board.user.Member" resultType="kr.board.user.Member">
+	<select id="memberLogin" parameterType="kr.board.user.Member"
+		resultType="kr.board.user.Member">
 		SELECT *
-		FROM member 
+		FROM member
 		WHERE memberID = #{memberId} AND
-		      memberPassword = #{memberPassword}
+		memberPassword = #{memberPassword}
 	</select>
-	
-	
+
+
 	<!-- 회원삭제 -->
 	<update id="memberUpdate" parameterType="kr.board.user.Member">
-		update member set memberPassword= #{memberPassword} where memberId=#{memberId}
+		update member set
+		memberPassword= #{memberPassword} where memberId=#{memberId}
 	</update>
-	
+
+	<select id="getMember" parameterType="String"
+		resultType="kr.board.user.Member">
+		SELECT * FROM member WHERE memberId = #{memberId}
+	</select>
+
+	<update id="imageUpdate" parameterType="kr.board.user.Member">
+		update member set
+		memberProFile = #{memberProfile} WHERE memberId = #{memberId}
+	</update>
+
 </mapper>
 
 
