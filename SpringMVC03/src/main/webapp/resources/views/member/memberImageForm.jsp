@@ -76,7 +76,7 @@
 			<div class="panel-footer"></div>
 
 
-			<div class="modal fade" id="loginFormModal" role="dialog">
+			<div class="modal fade" id="fileFormModal" role="dialog">
 				<div class="modal-dialog">
 
 					<!-- Modal content-->
