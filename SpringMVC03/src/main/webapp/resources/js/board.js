@@ -19,7 +19,6 @@ function loadList() {
 }
 
 function makeView(data) {
-
 	let boardHtml = [];
 	const $view = $("#view");
 	boardHtml.push("<table class='table table-bordered'>");
@@ -57,15 +56,22 @@ function makeView(data) {
 	});
 	boardHtml.push("</tbody>");
 
+	// #TODO 회원제 게시판으로 변경하면서 회원이 아닌 경우에는 글쓰기를 사용하지 못하도록 해야한다.
+
 	boardHtml.push("<tr>");
 	boardHtml.push("<td colspan='5'>");
-	boardHtml.push("<button type='button' class='btn btn-primary btn-sm' value='글 쓰기' onclick='goForm()'>글 쓰기</button>");
-	boardHtml.push("</td>");
-	boardHtml.push("</tr>");
-	boardHtml.push("</table>");
-	$view.html(boardHtml.join(" "));
 
+	isLoggedIn(function(isLoggedIn) {
+		console.log(isLoggedIn);
+		if (isLoggedIn) {
+			boardHtml.push("<button type='button' class='btn btn-primary btn-sm' value='글 쓰기' onclick='goForm()'>글 쓰기</button>");
+		}
+		boardHtml.push("</td>");
+		boardHtml.push("</tr>");
 
+		boardHtml.push("</table>");
+		$view.html(boardHtml.join(" "));
+	});
 
 } // End makeView ()
 
@@ -191,3 +197,20 @@ function goUpdate(idx) {
 		error: error
 	});
 }
+
+function isLoggedIn(callback) {
+	$.ajax({
+		url: "/m03/getSession.do",
+		type: "GET",
+		dataType: "json",
+		success: function(data) {
+			if (data.member !== "empty") {
+				callback(true);
+			} else {
+				callback(false);
+			}
+		},
+		error: "세션정보 가져오기 실패"
+	});
+}
+

@@ -25,23 +25,10 @@
 	<div class="container">
 		<jsp:include page="common/menubar.jsp"></jsp:include>
 		<div class="panel-default panel">
-
-			<c:choose>
-				<c:when test="${empty member.memberProfile}">
-					<div>
-						<img src="${contextPath}/resources/images/main.jpg"
-							style="width: 100%; height: 200px;" alt="사진" />
-						<!-- empty -->
-					</div>
-				</c:when>
-				<c:otherwise>
-					<div>
-						<img src="${contextPath}/resources/upload/${member.memberProfile}"
-							style="width: 100%; height: 200px;" alt="사진" />
-					</div>
-					<!-- not empty -->
-				</c:otherwise>
-			</c:choose>
+			<div>
+				<img src="${contextPath}/resources/images/main.jpg"
+					style="width: 100%; height: 200px;" alt="사진" />
+			</div>
 
 			<div class="panel-body">
 				<ul class="nav nav-tabs">

@@ -32,6 +32,7 @@ public class MemberController {
 
 	private final MemberMapper memberMapper;
 
+	
 	/**
 	 * Main View
 	 * 

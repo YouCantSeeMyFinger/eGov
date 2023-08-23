@@ -59,21 +59,37 @@
 			<!-- 로그인 했을 때 -->
 			<c:if test="${!empty member}">
 				<ul class="nav navbar-nav navbar-right">
+					<c:choose>
+						<c:when test="${empty member.memberProfile}">
+							<li><img src="${contextPath}/resources/images/main.jpg"
+								style="width: 50px; height: 50px;" class="img-circle" alt="사진" /></li>
+						</c:when>
+						<c:otherwise>
+							<li><img
+								src="${contextPath}/resources/upload/${member.memberProfile}"
+								style="width: 50px; height: 50px;" class="img-circle" alt="사진" /></li>
+						</c:otherwise>
+					</c:choose>
 					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" href="#">"${member.memberName}"님 환영합니다.<span
+						data-toggle="dropdown" href="#">"${member.memberName}"<span
 							class="caret"></span>
 					</a>
 						<ul class="dropdown-menu">
 							<li role="prsentation"><a
 								href="${contextPath}/memberUpdateForm">회원정보 수정</a></li>
 							<li role="presentation" class="divider"></li>
-							<li role="presentation"><a href="${contextPath}/memberImageForm.do"><span class="glyphicon glyphicon-picture" style="margin-right : 10px"></span>사진등록</a></li>
+							<li role="presentation"><a
+								href="${contextPath}/memberImageForm.do"><span
+									class="glyphicon glyphicon-picture" style="margin-right: 10px"></span>사진등록</a></li>
 						</ul></li>
 
 					<li><a href="#"><span class="glyphicon glyphicon-refresh"></span>
 							알림</a></li>
 					<li><a href="${contextPath}/memberLogout.do"><span
 							class="glyphicon glyphicon-log-out"></span> 로그아웃</a></li>
+
+
+
 				</ul>
 			</c:if>
 
