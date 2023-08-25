@@ -48,6 +48,8 @@ function makeView(data) {
 		boardHtml.push("<td colspan='4'>");
 		boardHtml.push(`<textarea row="7" class="form-control" id="boardContent${object.idx}" readonly></textarea>`);
 		boardHtml.push(`<br>`);
+
+		// #TODO 자신이 작성한 글만 수정 및 삭제가 가능하도록 해야한다.
 		boardHtml.push(`<span id="update${object.idx}"><button type="button" class="btn btn-sm btn-success" onclick="goUpdateForm(${object.idx})">수정화면</button><span>`);
 		boardHtml.push(`<button type="button" class="btn btn-sm btn-warning" onclick="goDelete(${object.idx})">삭제</button>`);
 		boardHtml.push("</td>");
@@ -213,4 +215,5 @@ function isLoggedIn(callback) {
 		error: "세션정보 가져오기 실패"
 	});
 }
+
 

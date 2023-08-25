@@ -34,6 +34,8 @@
 
 			<div class="board-form" id="boardForm" style="display: none">
 				<form id="tableForm">
+					<input type="hidden" name="memberId" value="${member.memberId}" />
+
 					<table class="table">
 						<tr>
 							<td>제목</td>
@@ -50,7 +52,7 @@
 						<tr>
 							<td>작성자</td>
 							<td><input type="text" class="form-control" id="writer"
-								name="writer" placeholder="작성자를 입력해주세요." /></td>
+								name="writer" readonly="readonly" value="${member.memberName}" /></td>
 						</tr>
 
 						<tr class="text-right">

@@ -8,8 +8,15 @@
 	</select>
 
 	<insert id="boardInsert" parameterType="kr.board.entity.Board">
-		INSERT INTO myboard(title
-		, content , writer) VALUES(#{title} , #{content} , #{writer})
+		INSERT INTO
+			myboard(memberId ,title, content , writer) 
+		VALUES 
+			(
+				#{memberId},
+				#{title} ,
+				#{content} , 
+				#{writer}
+			)
 	</insert>
 
 	<select id="boardContents" parameterType="int"
@@ -24,8 +31,9 @@
 
 	<update id="boardUpdate" parameterType="kr.board.entity.Board">
 		UPDATE myboard
-		SET title=#{title} ,
-			content=#{content}
+		SET
+		title=#{title} ,
+		content=#{content}
 		WHERE idx=#{idx}
 	</update>
 

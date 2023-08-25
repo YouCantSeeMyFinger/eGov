@@ -9,11 +9,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import kr.board.user.Member;
+
 @Controller
 public class BoardController {
 
 	@ResponseBody
-	@GetMapping("/getSession.do")
+	@GetMapping(value = "/getSession.do", produces = "application/json;charset=UTF-8")
 	public String getSession(HttpSession session) {
 		Optional<Object> memberSession = Optional.ofNullable(session.getAttribute("member"));
 		return "{\"member\" : \"" + memberSession.orElse("empty") + "\"}";

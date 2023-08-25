@@ -7,6 +7,8 @@ import lombok.Data;
 public class Board {
     // 번호
     private Integer idx;
+    // 아이디
+    private String memberId; 
     // 제목
     private String title;
     // 내용
