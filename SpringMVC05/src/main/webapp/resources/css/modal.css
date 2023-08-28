@@ -1,0 +1,6 @@
+@charset 'utf-8';
+
+.modal-backdrop-bg {z-index:1060}
+.modal-backdrop-bg + .modal{z-index:1061} 
+
+.modal textarea {min-height:100px !important}

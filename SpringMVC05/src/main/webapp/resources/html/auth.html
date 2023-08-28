@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Namulsoft CRM</title>
+	<link rel="stylesheet" href="../css/fonts.css">
+	<link rel="stylesheet" href="../css/util/bootstrap.css">
+    <link rel="stylesheet" href="../css/util/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/util/icofont.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/modal.css">
+ </head>
+ <body>
+    <div class="layout">
+        <!-- nav -->
+        <nav>
+            <div class="logo">
+                <a href="../html/index.html"><img src="../img/nm_logo.jpg"></a>
+            </div>
+            <div class="menu">
+                <div class="depth depth1 on">
+                    <a>
+                        <i class="bi bi-house-door"></i>
+                        Dashboard
+                        <i class="bi bi-chevron-down bi_arrow" data-type="open"></i>
+                        <!--<i class="bi bi-chevron-up btn_nav" data-type="close"></i>-->
+                    </a>
+                    <div class="depth depth2">
+                        <a href="../html/index.html">dashboard</a>
+                    </div>
+                </div>
+                <div class="depth depth1">
+                    <a href="board.html">
+                        <i class="bi bi-clipboard"></i>
+                        Board
+                    </a>
+                </div>
+                <div class="depth depth1">
+                    <a href="login.html">
+                        <i class="bi bi-lock"></i>
+                        Login
+                    </a>
+                </div>
+                <div class="depth depth1">
+                    <a href="auth.html" class="active">
+                        <i class="bi bi-person"></i>
+                        Auth
+                    </a>
+                </div>
+                
+            </div>
+            <div class="info">
+                <a><i class="icofont-logout"></i> Logout</a>
+            </div>
+        </nav>
+        <!-- END nav -->
+        <!-- PAGE CONTAINER -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="container">
+            <header>
+                <a class="btn_nav" data-type="off"><i class="bi bi-list"></i></a>
+                <div class="search_area">
+                    <form name="main_search">
+						<input type="hidden" placeholder="search" name="column" value="seq">
+                        <input type="hidden" placeholder="search" name="order" value="asc">
+                        <input type="hidden" placeholder="search" name="row" value="10">
+                        <input type="hidden" placeholder="search" name="page" value="1">
+
+                        <input type="text" placeholder="search" name="search_text" required autocomplete='off'>
+						<a><i class="bi bi-search"></i></a>
+                    </form>
+					<div class="search_cont">
+						<a href="">가나다라마</a>
+						<a href="">가나다라마</a>
+					</div>
+                </div>
+                
+                <div class="info">
+                    <img src="../img/nm_logo.jpg">
+                    <span class="">박나물</span> <span>(관리자)</span>님
+                </div>
+            </header>
+            <div class="cont_wrap">
+                <div class="cont_top">
+                    <h2>권한</h2>
+
+                    <form class="search mt-5 bd_search" name="frm_auth_search" method="post">
+                        <input type="hidden" name="page" value="1">
+						<input type="hidden" name="order" value="desc">
+						<input type="hidden" name="column" value="seq">
+
+                        <div class="col-2 mr15">
+                            <select class="form-select" name="option">
+                                <option>선택</option>
+                                <option value="division">division</option>
+                                <option value="name">name</option>
+                                <option value="email">e-mail</option>
+                            </select>
+                        </div>
+                        <div class="col-3">
+                            <input type="text"name="keyword" placeholder="검색어 입력" class="form-control" >
+                        </div>
+                       
+                        <div class="col-1 float-end">
+                            <select class="form-select" name="row">
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                                <option value="30" selected>30</option>
+                                <option value="40">40</option>
+                                <option value="50">50</option>
+                            </select>
+                        </div>
+                    </form>
+                    
+                </div>
+                <div class="cont_body">
+                    <div class="body">
+                        <table class="table tbl_auth_list">
+                            <colgroup>
+                                <col width="15%">
+                                <col width="15%">
+                                <col>
+                                <col width="18%">
+                                <col width="18%">
+                                <col width="18%">
+                                <col width="40px">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th class="text-center on" data-column="division" data-sort="asc">division <i class="bi bi-caret-down-fill"></i></th>
+                                    <th class="text-center" data-column="name" data-sort="desc">name <i class="bi bi-caret-up-fill"></i></th>
+                                    <th class="text-center" data-column="email" data-sort="desc">e-mail <i class="bi bi-caret-up-fill"></i></th>
+                                    <th class="text-center">menu/rwx</th>
+                                    <th class="text-center">board/rwx</th>
+                                    <th class="text-center">auth/rwx</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="bottom">
+                        <p class="total">총 <span class="text-primary">10</span>건 </p>
+
+                        <ul class="paging auth_paging">
+                            <li><a><i class="bi bi-chevron-left"></i></a></li>
+                            <li><a>1</a></li>
+                            <li class="active"><a>2</a></li>
+                            <li><a><i class="bi bi-chevron-right"></i></a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- END - PAGE CONTAINER -->
+    </div>
+
+
+
+
+	<script type="text/javascript" src="../js/util/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="../js/util/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../js/util/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../js/util/slick.min.js"></script>
+	<script type="text/javascript" src="../js/util/dayjs.min.js"></script>
+	<script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="../js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+{   
+    "total" : 11,
+    "code" : 1001,
+    "result": [
+		{
+			"seq": 1,
+			"name" : "박나물",
+			"content" : "냉무",
+			"point" : "101",
+			"start_date" : "2020010111000",
+			"end_date" : "2020010111000",
+			"state" : "1"
+		},
+		{
+			"seq": 2,
+			"name" : "박나물",
+			"content" : "냉무",
+			"point" : "1000",
+			"start_date" : "2020010111000",
+			"end_date" : "2020010111000",
+			"state" : "2"
+		},
+		{
+			"seq": 3,
+			"name" : "박나물",
+			"content" : "냉무",
+			"point" : "10",
+			"start_date" : "2020010111000",
+			"end_date" : "2020010111000",
+			"state" : "1"
+		},
+		{
+			"seq": 4,
+			"name" : "박나물",
+			"content" : "냉무",
+			"point" : "10",
+			"start_date" : "2020010111000",
+			"end_date" : "2020010111000",
+			"state" : "1"
+		},
+		{
+			"seq": 5,
+			"name" : "박나물",
+			"content" : "냉무",
+			"point" : "10",
+			"start_date" : "2020010111000",
+			"end_date" : "2020010111000",
+			"state" : "1"
+		},
+		{
+			"seq": 6,
+			"name" : "박나물",
+			"content" : "냉무",
+			"point" : "1000000",
+			"start_date" : "2020010111000",
+			"end_date" : "2020010111000",
+			"state" : "2"
+		},
+		{
+			"seq": 7,
+			"name" : "박나물",
+			"content" : "냉무",
+			"point" : "1000000",
+			"start_date" : "2020010111000",
+			"end_date" : "2020010111000",
+			"state" : "2"
+		},
+		{
+			"seq": 8,
+			"name" : "박나물",
+			"content" : "냉무",
+			"point" : "1000000",
+			"start_date" : "2020010111000",
+			"end_date" : "2020010111000",
+			"state" : "1"
+		},
+		{
+			"seq": 9,
+			"name" : "박나물",
+			"content" : "냉무",
+			"point" : "1000000",
+			"start_date" : "2020010111000",
+			"end_date" : "2020010111000",
+			"state" : "2"
+		},
+		{
+			"seq": 10,
+			"name" : "김나물",
+			"content" : "냉무",
+			"point" : "1000000",
+			"start_date" : "2020010111000",
+			"end_date" : "2020010111000",
+			"state" : "1"
+		}
+	
+  ]
+}

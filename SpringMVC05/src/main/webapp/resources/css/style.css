@@ -1,0 +1,126 @@
+@charset 'utf-8';
+
+html {font-size:62.5%}
+:root{
+    --bs-body-bg:#f9fbfd;
+    --bs-white:#fff;
+    --bs-bordeer-color:#e3ebf6;
+    --bs-form-border-color:#ced4da;
+    --bs-nav-size:0.875rem;
+    --bs-padding:1.125rem;
+    --pd-15px:15px;
+    --bs-font-ko:'SUIT';
+    --bs-nav-color:#313a46;
+}
+
+*{font-family:var(--bs-font-ko); font-size:14px}
+*::-webkit-scrollbar {width:0.1875rem; height:3px}
+*::-webkit-scrollbar-track{background-color:transparent}
+*::-webkit-scrollbar-thumb{background: rgba(135, 139, 144, 0.5); border-radius:2rem}
+*::-webkit-scrollbar-thumb:hover{background: rgba(135, 139, 144, 0.5); width:0.625rem}
+
+
+button {background-color:transparent; border:none}
+
+form {width:100%; display:inline-block}
+form.hide {display:none}
+textarea {resize:none}
+ol, ul, dl {margin:0; padding:0}
+li {list-style:none}
+a {cursor:pointer; color:var(--bs-primary)}
+a:not([calss*='link-']){text-decoration:none}
+img {width:100%}
+input:focus-visible {outline:none}
+
+
+/*간격*/
+.pr10{padding-right:10px}.pr15{padding-right:15px}.pr20{padding-right:20px}.pr25{padding-right:25px}.pr30{padding-right:30px}.pr35{padding-right:35px}.pr40{padding-right:40px}.pr45{padding-right:45px}.pr50{padding-right:50px}
+.pl10{padding-left:10px}.pl15{padding-left:15px}.pl20{padding-left:20px}.pl25{padding-left:25px}.pl30{padding-left:30px}.pl35{padding-left:35px}.pl40{padding-left:40px}.pl45{padding-left:45px}.pl50{padding-left:50px}
+.mr10{margin-right:10px}.mr15{margin-right:15px}.mr20{margin-right:20px}.mr25{margin-right:25px}.mr30{margin-right:30px}.mr35{margin-right:35px}.mr40{margin-right:40px}.mr45{margin-right:45px}.mr50{margin-right:50px}
+.ml10{margin-left:10px}.ml15{margin-left:15px}.ml20{margin-left:20px}.ml25{margin-left:25px}.ml30{margin-left:30px}.ml35{margin-left:35px}.ml40{margin-left:40px}.ml45{margin-left:45px}.ml50{margin-left:50px}
+
+
+
+/*form, 검색창*/
+.search_area {display:inline-block; position:relative; text-align:left}
+.search_area form a {position:absolute; left:10px; top:7px}
+.search_area i {color:var(--bs-primary)}
+
+
+.bg-required {background-color:var(--bs-danger-bg-subtle) !important}
+
+/*table*/
+.teble thead th {background-color:var(--bs-gray-100);}
+
+
+/*페이징*/
+.paging {text-align:center}
+.paging li {display:inline-block}
+.paging li:not(:last-child) {margin-right:10px}
+.paging a {height:30px; line-height:30px; padding:0 10px; display:block; text-align:center; border-radius:3px}
+.paging li.active a{background-color:var(--bs-primary); color:var(--bs-white)}
+
+
+/*레이아웃*/
+.layout {position:fixed; width:100%; left:0; top:0; min-height:100vw; background-color:var(--light)}
+.layout nav{position:fixed; left:0; top:0; bottom:0; border-right:1px solid var(--bs-bordeer-color); color:var(--bs-white); background-color:var(--bs-nav-color)}
+.layout nav .logo {width:100%; padding:var(--bs-padding);  text-align:center; margin-bottom:2rem}
+.layout nav .logo a {width:100px; height:100px; line-height:100px; background-color:var(--bs-white); border-radius:50%; display:block; margin:0 auto; overflow:hidden}
+.layout nav .menu {border-top:1px solid var(--bs-gray-500); padding:var(--bs-padding) 0; height:calc(100% - 200px); overflow-y:auto}
+.layout nav .menu a {width:100%; display:inline-block; padding-top:0.5rem; padding-bottom:0.5rem; text-decoration-line: none;}
+.layout nav .menu a .btn_nav {float:right}
+.layout nav .menu .bi_arrow {float:right}
+.layout nav .menu .depth {width:100%}
+.layout nav .menu .depth a {color:var(--bs-gray-500)}
+.layout nav .menu .depth a.active {color:var(--bs-white)}
+.layout nav .menu .depth a:hover,
+.layout nav .menu .depth a:hover i {color:var(--bs-white); text-decoration-line:none;}
+.layout nav .menu .depth1 i:first-child{padding-right:10px}
+.layout nav .menu .depth1:not(.on) .depth2 {display:none}
+.layout nav .menu .depth2 a {padding-left:28px}
+.layout nav .info a {color:var(--bs-white)}
+
+
+.layout .container{height:100vh; position:relative}
+.layout header {height:62px; padding:var(--pd-15px); background-color:var(--bs-white); border-bottom:1px solid var(--bs-bordeer-color); text-align:right; position:fixed; top:0; right:0; z-indeX:1}
+.layout header .btn_nav {float:left; padding-right:1rem}
+.layout header .btn_nav i {font-size:2rem; color:var(--bs-primary)}
+.layout header .search_area {float:left}
+.layout header .search_area input {border:1.5px solid var(--bs-gray-500); border-radius:0.75rem; padding:0.5rem 0.5rem 0.5rem 3rem}
+.layout header .search_area .search_cont {display:none; margin:0 1rem; background-color:var(--bs-white); box-shadow:0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important}
+.layout header .search_area .search_cont a {display:block; padding:1rem; margin:0 1rem}
+.layout header .search_area .search_cont a:not(:last-child) {border-bottom:1px solid var(--bs-gray-400)}
+.layout header .info {line-height:30px; color:var(--bs-gray); font-family:var(--bs-font-ko); float:right}
+.layout header .info img {width:30px; border-radius:var(--bs-border-radius-pill)}
+
+.layout .cont_wrap {height:100%; padding:62px 0 0; overflow-y:auto}
+.layout .cont_top {min-height:55px; padding:2rem}
+.layout .cont_top input, .layout .cont_top select {background-color:var(--bs-white)}
+.layout .cont_top .search > div {display:inline-block}
+.layout .cont_top .search > button {float:right}
+.layout .cont_body { width:100%; background-color:var(--bs-white); border-top:1px solid var(--bs-bordeer-color); padding:2rem}
+.layout .cont_body:not(.auto) {height:calc(100% - 127px);}
+.layout .cont_body .body {height:calc(100% - 5.5rem); margin-bottom:1.5rem; overflow-y:auto}
+.layout .cont_body .table th,
+.layout .cont_body .table td {background-color:var(--bs-white)}
+.layout .cont_body table th {cursor:pointer}
+.layout .cont_body table th.on {color:var(--bs-info)}
+
+.layout .cont_body .bottom {height:30px; line-height:30px}
+.layout .cont_body .bottom p {display:inline-block}
+.layout .cont_body .bottom .paging {float:right; display:inline-block}
+
+
+
+
+.layout:not(.max) {padding-left:250px;}
+.layout:not(.max) nav {width:250px; max-width:250px; padding:1.25rem; }
+.layout:not(.max) header {left:250px; }
+
+.layout.max {padding-left:0}
+.layout.max nav{width:0; max-width:0; padding:0}
+.layout.max nav * {display:none}
+.layout.max header {left:0}
+
+footer {border-top:1px solid var(--bs-gray-500); padding:1rem 2rem 0.5rem; text-align:center}
+footer p {font-size:1.2rem}

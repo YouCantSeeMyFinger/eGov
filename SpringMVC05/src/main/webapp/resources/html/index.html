@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Namulsoft CRM</title>
+	<link rel="stylesheet" href="../css/fonts.css">
+	<link rel="stylesheet" href="../css/util/bootstrap.css">
+    <link rel="stylesheet" href="../css/util/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/util/icofont.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/modal.css">
+ </head>
+ <body>
+    <div class="layout">
+        <!-- nav -->
+        <nav>
+            <div class="logo">
+                <a href="../html/index.html"><img src="../img/nm_logo.jpg"></a>
+            </div>
+            <div class="menu">
+                <div class="depth depth1">
+                    <a>
+                        <i class="bi bi-house-door"></i>
+                        Dashboard
+                        <i class="bi bi-chevron-down bi_arrow" data-type="open"></i>
+                        <!--<i class="bi bi-chevron-up btn_nav" data-type="close"></i>-->
+                    </a>
+                    <div class="depth depth2">
+                        <a href="../html/index.html">dashboard</a>
+                    </div>
+                </div>
+                <div class="depth depth1">
+                    <a href="board.html">
+                        <i class="bi bi-clipboard"></i>
+                        Board
+                    </a>
+                </div>
+                <div class="depth depth1">
+                    <a href="login.html">
+                        <i class="bi bi-lock"></i>
+                        Login
+                    </a>
+                </div>
+                <div class="depth depth1">
+                    <a href="auth.html">
+                        <i class="bi bi-person"></i>
+                        Auth
+                    </a>
+                </div>
+                
+            </div>
+            <div class="info">
+                <a class="btn_logout"><i class="icofont-logout"></i> Logout</a>
+            </div>
+        </nav>
+        <!-- END nav -->
+        <!-- PAGE CONTAINER -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="container">
+            <header>
+                <a class="btn_nav" data-type="off"><i class="bi bi-list"></i></a>
+                <div class="search_area">
+                    <form name="main_search">
+						<input type="hidden" placeholder="search" name="column" value="seq">
+                        <input type="hidden" placeholder="search" name="order" value="asc">
+                        <input type="hidden" placeholder="search" name="row" value="10">
+                        <input type="hidden" placeholder="search" name="page" value="1">
+
+                        <input type="text" placeholder="search" name="search_text" required autocomplete='off'>
+						<a><i class="bi bi-search"></i></a>
+                    </form>
+					<div class="search_cont">
+						<a href="">가나다라마</a>
+						<a href="">가나다라마</a>
+					</div>
+                </div>
+                
+                <div class="info">
+                    <img src="../img/nm_logo.jpg">
+                    <span class="">박나물</span> <span>(관리자)</span>님
+                </div>
+            </header>
+            <div class="cont_wrap">
+                <div class="cont_top">
+                    <h2>Dashboard</h2>
+
+                    <div class="row mt-5">
+                        <div class="col-8">
+                            <div class="card">
+                                <div class="card-header"><h4>Project</h4></div>
+                                <div class="card-body pt-0" style="height:300px">
+                                    <canvas id="chart1"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="card">
+                                <div class="card-header"><h4>Order</h4></div>
+                                <div class="card-body pt-0" style="height:300px">
+                                    <canvas id="chart2"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-5">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header"><h4>Project List</h4></div>
+                                <div class="card-body pt-0">
+                                    <table class="table tbl_bd_list" data-func="list" data-form="main_search">
+                                        <colgroup>
+                                            <col width="20px">
+                                            <col width="20%">
+                                            <col width="">
+                                            <col width="20%">
+                                            <col width="20%">
+                                            <col width="15%">
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    <input type="checkbox" class="form-check-input tbl_chkall">
+                                                </th>
+                                                <th class="text-center on" data-column="name" data-sort="asc">name</th>
+                                                <th class="text-center" data-column="content" data-sort="desc">content</th>
+                                                <th class="text-center" data-column="point" data-sort="desc">point</th>
+                                                <th class="text-center" data-column="date" data-sort="desc">date</th>
+                                                <th class="text-center" data-column="state" data-sort="desc">state</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody><tr>  <td>      <input type="checkbox" class="form-check-input" name="seq" value="1">  </td>  <td class="text-center">박나물</td>  <td>냉무</td>  <td class="text-center">10</td>  <td class="text-center">2020-01-01</td>  <td class="text-center">정상</td></tr><tr>  <td>      <input type="checkbox" class="form-check-input" name="seq" value="2">  </td>  <td class="text-center">박나물</td>  <td>냉무</td>  <td class="text-center">1,000</td>  <td class="text-center">2020-01-01</td>  <td class="text-center">탈퇴</td></tr><tr>  <td>      <input type="checkbox" class="form-check-input" name="seq" value="3">  </td>  <td class="text-center">박나물</td>  <td>냉무</td>  <td class="text-center">10</td>  <td class="text-center">2020-01-01</td>  <td class="text-center">정상</td></tr><tr>  <td>      <input type="checkbox" class="form-check-input" name="seq" value="4">  </td>  <td class="text-center">박나물</td>  <td>냉무</td>  <td class="text-center">10</td>  <td class="text-center">2020-01-01</td>  <td class="text-center">정상</td></tr><tr>  <td>      <input type="checkbox" class="form-check-input" name="seq" value="5">  </td>  <td class="text-center">박나물</td>  <td>냉무</td>  <td class="text-center">10</td>  <td class="text-center">2020-01-01</td>  <td class="text-center">정상</td></tr><tr>  <td>      <input type="checkbox" class="form-check-input" name="seq" value="6">  </td>  <td class="text-center">박나물</td>  <td>냉무</td>  <td class="text-center">1,000,000</td>  <td class="text-center">2020-01-01</td>  <td class="text-center">탈퇴</td></tr><tr>  <td>      <input type="checkbox" class="form-check-input" name="seq" value="7">  </td>  <td class="text-center">박나물</td>  <td>냉무</td>  <td class="text-center">1,000,000</td>  <td class="text-center">2020-01-01</td>  <td class="text-center">탈퇴</td></tr><tr>  <td>      <input type="checkbox" class="form-check-input" name="seq" value="8">  </td>  <td class="text-center">박나물</td>  <td>냉무</td>  <td class="text-center">1,000,000</td>  <td class="text-center">2020-01-01</td>  <td class="text-center">정상</td></tr><tr>  <td>      <input type="checkbox" class="form-check-input" name="seq" value="9">  </td>  <td class="text-center">박나물</td>  <td>냉무</td>  <td class="text-center">1,000,000</td>  <td class="text-center">2020-01-01</td>  <td class="text-center">탈퇴</td></tr><tr>  <td>      <input type="checkbox" class="form-check-input" name="seq" value="10">  </td>  <td class="text-center">김나물</td>  <td>냉무</td>  <td class="text-center">1,000,000</td>  <td class="text-center">2020-01-01</td>  <td class="text-center">정상</td></tr></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+              
+               
+                <footer>
+                    <p>2023 © NAMULSOFT. All Rights Reserved.</p>
+                </footer>
+            </div>
+        </div>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- END - PAGE CONTAINER -->
+    </div>
+
+	<script type="text/javascript" src="../js/util/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="../js/util/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../js/util/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../js/util/slick.min.js"></script>
+	<script type="text/javascript" src="../js/util/dayjs.min.js"></script>
+	<script type="text/javascript" src="../js/util/chart.min.js"></script>
+	<script type="text/javascript" src="../js/common.js"></script>
+	<script type="text/javascript" src="../js/index.js"></script>
+</body>
+</html>

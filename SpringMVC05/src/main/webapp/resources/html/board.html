@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Namulsoft CRM</title>
+	<link rel="stylesheet" href="../css/fonts.css">
+	<link rel="stylesheet" href="../css/util/bootstrap.css">
+    <link rel="stylesheet" href="../css/util/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/util/icofont.min.css">
+    <link rel="stylesheet" href="../css/util/bootstrap-datepicker3.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/modal.css">
+ </head>
+ <body>
+    <div class="layout">
+        <!-- nav -->
+        <nav>
+            <div class="logo">
+                <a href="../html/index.html"><img src="../img/nm_logo.jpg"></a>
+            </div>
+            <div class="menu">
+                <div class="depth depth1 on">
+                    <a>
+                        <i class="bi bi-house-door"></i>
+                        Dashboard
+                        <i class="bi bi-chevron-down bi_arrow" data-type="open"></i>
+                        <!--<i class="bi bi-chevron-up btn_nav" data-type="close"></i>-->
+                    </a>
+                    <div class="depth depth2">
+                        <a href="../html/index.html">dashboard</a>
+                    </div>
+                </div>
+                <div class="depth depth1">
+                    <a href="board.html" class="active">
+                        <i class="bi bi-clipboard"></i>
+                        Board
+                    </a>
+                </div>
+                <div class="depth depth1">
+                    <a href="login.html">
+                        <i class="bi bi-lock"></i>
+                        Login
+                    </a>
+                </div>
+                <div class="depth depth1">
+                    <a href="auth.html">
+                        <i class="bi bi-person"></i>
+                        Auth
+                    </a>
+                </div>
+                
+            </div>
+            <div class="info">
+                <a><i class="icofont-logout"></i> Logout</a>
+            </div>
+        </nav>
+        <!-- END nav -->
+        <!-- PAGE CONTAINER -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <div class="container">
+            <header>
+                <a class="btn_nav" data-type="off"><i class="bi bi-list"></i></a>
+                <div class="search_area">
+                    <form name="main_search">
+						<input type="hidden" placeholder="search" name="column" value="seq">
+                        <input type="hidden" placeholder="search" name="order" value="asc">
+                        <input type="hidden" placeholder="search" name="row" value="10">
+                        <input type="hidden" placeholder="search" name="page" value="1">
+
+                        <input type="text" placeholder="search" name="search_text" required autocomplete='off'>
+						<a><i class="bi bi-search"></i></a>
+                    </form>
+					<div class="search_cont">
+						<a href="">가나다라마</a>
+						<a href="">가나다라마</a>
+					</div>
+                </div>
+                
+                <div class="info">
+                    <img src="../img/nm_logo.jpg">
+                    <span class="">박나물</span> <span>(관리자)</span>님
+                </div>
+            </header>
+            <div class="cont_wrap">
+                <div class="cont_top">
+                    <h2>게시판</h2>
+
+                    
+                    <form class="search mt-5 bd_search" name="frm_bd_search" method="post">
+                        <input type="hidden" name="page" value="1">
+						<input type="hidden" name="order" value="desc">
+						<input type="hidden" name="column" value="seq">
+
+                        <div class="col-2 mr15">
+                            <select class="form-select" name="option">
+                                <option value="">선택하세요</option>
+                                <option value="name">이름</option>
+                                <option value="content">내용</option>
+                                <option value="point">포인트</option>
+                                <option value="date">날짜</option>
+                            </select>
+                        </div>
+                        <div class="col-3 mr15">
+                            <input type="text" placeholder="검색어 입력" class="form-control" name="keyword">
+                        </div>
+                        <div class="col-2">
+                            <select class="form-select" name="state">
+                                <option value="">선택하세요</option>
+                                <option value="1">정상</option>
+                                <option value="2">탈퇴</option>
+                            </select>
+                        </div>
+                        
+                        
+                        <button type="button" class="btn btn-danger btn_del" ><i class="bi bi-trash3 fs-6"></i> del</button>
+                        <button type="button" class="btn btn-primary me-4" id="btn_write"><i class="bi bi-plus fs-6"></i> Add</button>
+
+                        <div class="col-1 float-end mr15">
+                            <select class="form-select" name="row">
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                                <option value="30" selected>30</option>
+                                <option value="40">40</option>
+                                <option value="50">50</option>
+                            </select>
+                        </div>
+                    </form>
+                    
+                </div>
+                <div class="cont_body">
+                    <div class="body">
+                        <table class="table tbl_bd_list" data-func="list" data-form="frm_bd_search">
+                            <colgroup>
+                                <col width="20px">
+                                <col width="20%">
+                                <col width="">
+                                <col width="20%">
+                                <col width="20%">
+                                <col width="15%">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <input type="checkbox" class="form-check-input tbl_chkall">
+                                    </th>
+                                    <th class="text-center on" data-column="name" data-sort="asc">name <i class="bi bi-caret-down-fill"></i></th>
+                                    <th class="text-center" data-column="content" data-sort="desc">content <i class="bi bi-caret-up-fill"></i></th>
+                                    <th class="text-center" data-column="point" data-sort="desc">point <i class="bi bi-caret-up-fill"></i></th>
+                                    <th class="text-center" data-column="date" data-sort="desc">date <i class="bi bi-caret-up-fill"></i></th>
+                                    <th class="text-center" data-column="state" data-sort="desc">state <i class="bi bi-caret-up-fill"></i></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                               
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="bottom">
+                        <p class="total">총 <span class="text-primary">10</span>건 </p>
+                        
+                        <ul class="paging bd_paging">
+                            <li><a><i class="bi bi-chevron-left"></i></a></li>
+                            <li><a>1</a></li>
+                            <li class="active"><a>2</a></li>
+                            <li><a><i class="bi bi-chevron-right"></i></a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+        <!-- END - PAGE CONTAINER -->
+    </div>
+
+    <!--등록팝업-->
+    <div class="modal fade" id="md_board_write" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered modal-md">
+            <form name="frm_bd_write" method="post">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="staticBackdropLabel">게시글 작성</h4>
+                        <!--<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text col-2">작성일</span>
+                            <div class="form-floating">
+                                <input type="text" class="form-control date_picker" name="date"> 
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text col-2">이름</span>
+                            <div class="form-floating">
+                                <input type="text" class="form-control" name="name" required> 
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text col-2">포인트</span>
+                            <div class="form-floating">
+                                <input type="text" class="form-control" name="point" required> 
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text col-2">상태</span>
+                            <div class="form-floating">
+                                <select class="form-select" name="state">
+                                    <option>선택하세요</option>
+                                    <option value="1">정상</option>
+                                    <option value="2">휴먼</option>
+                                    <option value="3">탈퇴</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text col-2">내용</span>
+                            <div class="form-floating">
+                                <textarea type="text" class="form-control" name="content"> </textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">취소</button>
+                        <button type="button" class="btn btn-primary btn_save">등록</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--//등록팝업-->
+
+
+
+
+	<script type="text/javascript" src="../js/util/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="../js/util/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../js/util/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../js/util/slick.min.js"></script>
+	<script type="text/javascript" src="../js/util/dayjs.min.js"></script>
+    <script type="text/javascript" src="../js/util/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="../js/board.js"></script>
+</body>
+</html>

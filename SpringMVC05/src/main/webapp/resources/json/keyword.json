@@ -1,0 +1,21 @@
+{   
+    "total" : 11,
+    "code" : 1001,
+    "result": [
+		{
+			"seq": 1,
+			"link" : "html/board",
+			"keyword" : "testest"
+		},
+		{
+			"seq": 2,
+			"link" : "html/auth",
+			"keyword" : "testest"
+		},
+		{
+			"seq": 3,
+			"link" : "html/board",
+			"keyword" : "testest"
+		}
+  ]
+}

@@ -1,0 +1,22 @@
+@charset 'utf-8';
+
+
+
+
+
+
+
+
+.container {max-width: 1140px;}
+
+.form-control {border: 1px solid var(--bs-gray-400);padding: 0.5rem 0.75rem;height:auto;background-color: white;}
+.form-control:focus {border-color: var(--bs-primary);outline: 0;box-shadow: none;background-color: white;}
+input::placeholder {color:var(--bs-gray-500) !important;font-size: .8125rem;}
+.password {position: relative;}
+.eye {position:absolute; right:0.75rem; top:0.75rem; color:var(--bs-gray-600)}
+
+
+/* modal */
+.modal {--bs-modal-bg: #fff;}
+.modal .tab div {border-bottom:2px solid var(--bs-gray-400); color:var(--bs-gray-400)}
+.modal .tab div.active {border-bottom:2px solid var(--bs-primary) ; color:var(--bs-primary)}
